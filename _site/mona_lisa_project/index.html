@@ -49,13 +49,27 @@
     </header> <!-- End Header -->
 
     <div class="entry_content">
-      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented</p>
+      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented in this project to take a set of 3 sided polygons, triangles, and adjust the color and vertices of each corner of the triangle until the target image is formed by the set of polygons. In this case the image is the famous Mona Lisa by Leonardo da Vinci.</p>
+
+<h3 id="the-hill-climbing-algorithm-hca">The Hill Climbing Algorithm (HCA)</h3>
+<p>The Hill Climbing algorithm is an optimization algorithm that iteratively finds the best solution for the set of parameters against the target solution. For example the initial state of the problem is chosen at random and parameters are tweaked randomly until the next best solution is found. This process is iteratively done in order to minimize the loss.</p>
+
+<h4 id="hca-with-images">HCA with Images</h4>
+
+<p>Each triangle has three vertices which can be assigned a position in the xy-plane and an RBG color. If there are N triangles which can have either their vertices moved or color values changes then the number of degrees of freedom for this problem is <script type="math/tex">N*(3 * 2)*(3 * 3)</script>. In other words it’s the product of the number of triangles and the number of directions that each of the three vertices can be moved and the number of color values that can be changed for each. The loss function takes into account these degrees of freedom by calculating the <script type="math/tex">\chi^{2}</script> for each iteration</p>
+
+<script type="math/tex; mode=display">\chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}_{target} - \overrightarrow{X}_{pixel}) + (\overrightarrow{C}_{target} - \overrightarrow{C}_{pixel})</script>
+
+<p>If the $$\chi^{2}$ of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.</p>
+
+<h3 id="implementation-of-hca">Implementation of HCA</h3>
+
+<p>There are two ways to implement the HCA: (1)</p>
 
 <blockquote>
   <p>Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&amp;B post-ironic. <cite>- Lorem Ipsum</cite></p>
 </blockquote>
 
-<p>Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90’s waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&amp;B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90’s typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.</p>
 
     </div>
     
@@ -208,3 +222,19 @@
 </script> <!-- End Analytics -->
 </body>
 </html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'] ],
+  displayMath: [ ['$$', '$$']],
+  processEscapes: true,
+  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+  });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

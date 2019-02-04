@@ -63,6 +63,7 @@ DEPENDENCIES
   jekyll (~> 3.8)
   jekyll-paginate
   jekyll-sitemap
+  kramdown
 
 BUNDLED WITH
    1.16.2
