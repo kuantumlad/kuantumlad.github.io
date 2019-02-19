@@ -41,7 +41,7 @@ analytics:
 
 # Paginate
 paginate: 12
-paginate_path: /page:num/
+paginate_path: "/blog/page:num/" #/page:num/
 
 jekyll-mentions:
     base_url: https://github.com
