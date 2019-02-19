@@ -19,15 +19,8 @@ $$\chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}_{target} - \overrig
 
 If the $$\chi^{2}$ of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.
 
-
-
 ### Implementation of HCA ###
 
-There are two ways to implement the HCA: (1)
+There are two ways to implement this algorithm: (1) iterate toward the best solution that can fit the entire image, (2) split the image into a grid and fit more triangles within the grid. After successfully implementing the first method I split the image into a grid to achieve a better composite image of Mona Lisa.
 
-
-
-
-
-> Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&B post-ironic. <cite>- Lorem Ipsum</cite>
 

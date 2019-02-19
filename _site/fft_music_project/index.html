@@ -49,13 +49,62 @@
     </header> <!-- End Header -->
 
     <div class="entry_content">
-      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented</p>
+      <p>As a kid growing up we had a Dell computer with Windows Media Player on it which had a music visualizer setting you could watch as your favorite song played. My goal here was to create my own audio visualizer that I could use to not only listen to the songs I love but also see them. In order to achieve this I first made use of the discrete Fourier transform (DFT), then later adopted the Fast Fourier Transform algorithm developed by Cooley-Tukey to visualize the frequency spectrum as the song plays.</p>
 
-<blockquote>
-  <p>Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&amp;B post-ironic. <cite>- Lorem Ipsum</cite></p>
-</blockquote>
+<h3 id="music-sample">Music Sample</h3>
 
-<p>Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90’s waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&amp;B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90’s typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.</p>
+<p>A typical song that one might hear on the radio is comprised of an array of sampled bits. When played the sample bits are sampled at the sampling rate of the song, which when played over the speakers is what we hear. Below is an example of what we might see of a song represented by its sampling bits.</p>
+
+<p>insert  DFT of the song here from mathematica</p>
+
+<p>In order to deconstruct the signal into its principal frequency components a Discrete Fourier Transform, or more preferably a Fast Fourier Transform (FFT), is preformed on the signal. First we will preform a Fourier transform of the entire song to see a static representation of the signals Fourier components, then second I perform a FFT as the song plays in order to visualize these components over time.</p>
+
+<h3 id="quick-review-of-the-fourier-transform">Quick review of the Fourier Transform</h3>
+
+<p>The discrete fourier transform is represented below as:</p>
+
+<script type="math/tex; mode=display">F(j\omega) =  \sum^{N-1}_{k=0} f[k]e^{-j\omega kT}</script>
+
+<p>where <script type="math/tex">f[k]</script> is the value of the <script type="math/tex">k^{th}</script> input signal, which in this case was normalized to the maximum signal value, and <script type="math/tex">N</script> is the number of samples in the signal. We can also express <script type="math/tex">\omega</script>, the harmonics of the signal, as <script type="math/tex">\omega_{n} = \frac{2\pi n}{NT}</script>. Therefore when we go to evaluate the discrete Fourier transform of the signal we are in a sense calculating the product of a matrix, whose elements are <script type="math/tex">W_{nk}</script> are given by <script type="math/tex">e^{-j\omega kT}</script>, with a vector or the input signal <script type="math/tex">f[k]</script>. One issue with using this method to calculate the Fourier transform of a signal is that this operation is <script type="math/tex">\mathcal{O}(N^{2})</script> making this a computational expensive procedure. An alternative to this which reduces the computation time to <script type="math/tex">\mathcal{O}(N logN)</script> is the Cooley-Tukey FFT algorithm which can be read about <a href="https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm">here</a>.</p>
+
+<h3 id="applying-the-fft-to-music">Applying the FFT to Music</h3>
+<p>To visualize the frequency histogram change the FFT was applied to a sample window of 4096, which is approximately <script type="math/tex">\frac{1}{20}</script> of a second. This is known as short time Fourier transform. Once the FFT is complete the magnitude of the FFT coefficients are binned into a histogram and displayed as the sample window scans across the sample array. Filling the histogram requires knowing the appropriate frequency bin to change, calculating this requires scaling the frequency factor by the ratio of the sampling rate, the number of samples played in a seconds, to the short window size. The corresponding bin is then update. Once the FFT of the window is complete it is moved over and the process is repeated.</p>
+
+<p>Histogram bins are colored based on their frequency. Below is a table mapping the frequency ranges to their respective bin colors.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Frequency Range [Hz]</th>
+      <th>Bin Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 - 32</td>
+      <td>white</td>
+    </tr>
+    <tr>
+      <td>32 - 512</td>
+      <td>blue</td>
+    </tr>
+    <tr>
+      <td>512 - 2048</td>
+      <td>green</td>
+    </tr>
+    <tr>
+      <td>2048 - 8192</td>
+      <td>magenta</td>
+    </tr>
+    <tr>
+      <td>8192 - 16384</td>
+      <td>yellow</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Provide link to youtube video of song playing</p>
+
 
     </div>
     
@@ -95,19 +144,19 @@
         <img src="/bef/assets/img/face.jpg" alt="Author face">
       </div>
       <div class="author_info">
-        <h2 class="author_title">Brandon C</h2>
-        <p class="author_subtitle">Physics Graduate Student</p>
+        <h2 class="author_title">Brandon C.</h2>
+        <p class="author_subtitle">Physics Ph.D. Candidate</p>
         <div class="author_social">
           
           <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:your-email@domain.com">your-email@domain.com</a></span>
           
           
           
-          <span class="author_phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:(496)-169-6557">(496)-169-6557</a></span>
+          <span class="author_phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+496-169-65-57">(496)-169-6557</a></span>
           
 
           
-          <span class="author_website"><i class="fa fa-link" aria-hidden="true"></i> <a href="https://dwayne.example.com" target="_blank">https://dwayne.example.com</a></span>
+          <span class="author_website"><i class="fa fa-link" aria-hidden="true"></i> <a href="#" target="_blank">https://dwayne.example.com</a></span>
                       
         </div>
       </div>

@@ -56,29 +56,35 @@
 
 <p>The spiral is created by creating a square spiral in the counter clockwise direction by starting with the number 1 at the center. The numbers are represented by dots in the image, with white representinga nonprime number while the circle is colored red for a prime number.</p>
 
-<figure>	   
-  <img src="/Users/bclary/Documents/work/website/kuantumlad.github.io/images/ulam_spiral/ulam_spiral_text.png" alt="" height="20%" width="20%" />
-    <figcaption>Fig. 1 - To visualize the numerical representation of Ulam's spiral the first 40 numbers are shown starting from 1 and working outward in a spiral like manner Later the numbers of replaced with circles colored red to represent prime numbers. </figcaption>
-</figure>
+<figure>
+  <img src="" alt="}" />
+  <figcaption></figcaption>
+&lt;/figure
 
-<h2 id="visualizing-the-spiral">Visualizing the Spiral</h2>
 
-<p>Below is an image created using Ulam’s Spiral technique with 22500 numbers arranged in a square lattice. What is interesting is the formation of lines comprised of prime numbers throughout the image! Ulam notes that this is not unexpected because within those regions of high prime density a prime generating polynomial is thought to be resonsible for this.</p>
+## Visualizing the Spiral ##
 
-<h2 id="coding">Coding</h2>
+Below is an image created using Ulam's Spiral technique with 22500 numbers arranged in a square lattice. What is interesting is the formation of lines comprised of prime numbers throughout the image! Ulam notes that this is not unexpected because within those regions of high prime density a prime generating polynomial is thought to be resonsible for this.
 
-<p>Rather than use a C++ <code> std::vector </code> container this time a dynamic array containing pointers to n instances of <code> sf::CircleShape </code> was used for the project. The properties of the CircleShape class are altered depending on whether the number associated with the instance was prime or not.</p>
+## Coding ##
 
-<p>Below is example code illustrating a dynamically allocated array of size N for type <code> sf::CircleShape* </code>.</p>
+Rather than use a C++ <code> std::vector </code> container this time a dynamic array containing pointers to n instances of <code> sf::CircleShape </code> was used for the project. The properties of the CircleShape class are altered depending on whether the number associated with the instance was prime or not.
 
-<p><code>
+Below is example code illustrating a dynamically allocated array of size N for type <code> sf::CircleShape* </code>.
+
+<code>
 sf::CircleShape **ulam_grid_circles = new sf::CircleShape*[N];
-</code></p>
+</code>
 
-<p>Remember to delete the object in memory to avoid memory allocation issues using <code> delete[] </code></p>
+Remember to delete the object in memory to avoid memory allocation issues using <code> delete[] </code>
 
-<p>Citations:</p>
 
+
+
+
+
+
+</figure>
 
     </div>
     
@@ -110,19 +116,19 @@ sf::CircleShape **ulam_grid_circles = new sf::CircleShape*[N];
         <img src="/bef/assets/img/face.jpg" alt="Author face">
       </div>
       <div class="author_info">
-        <h2 class="author_title">Brandon C</h2>
-        <p class="author_subtitle">Physics Graduate Student</p>
+        <h2 class="author_title">Brandon C.</h2>
+        <p class="author_subtitle">Physics Ph.D. Candidate</p>
         <div class="author_social">
           
           <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:your-email@domain.com">your-email@domain.com</a></span>
           
           
           
-          <span class="author_phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:(496)-169-6557">(496)-169-6557</a></span>
+          <span class="author_phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+496-169-65-57">(496)-169-6557</a></span>
           
 
           
-          <span class="author_website"><i class="fa fa-link" aria-hidden="true"></i> <a href="https://dwayne.example.com" target="_blank">https://dwayne.example.com</a></span>
+          <span class="author_website"><i class="fa fa-link" aria-hidden="true"></i> <a href="#" target="_blank">https://dwayne.example.com</a></span>
                       
         </div>
       </div>
