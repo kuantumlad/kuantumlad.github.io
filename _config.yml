@@ -43,6 +43,9 @@ analytics:
 paginate: 12
 paginate_path: /page:num/
 
+jekyll-mentions:
+    base_url: https://github.com
+
 # Build settings
 markdown: kramdown
 plugins:
