@@ -33,12 +33,12 @@ Histogram bins are colored based on their frequency. Below is a table mapping th
 
 
 | Frequency Range [Hz] | Bin Color |
-|------------|---------|
-0 - 32       | white   |
-32 - 512     | blue    |
-512 - 2048   | green   |
-2048 - 8192  | magenta |
-8192 - 16384 | yellow  |
+|  ------------|---------|
+| 0 - 32       | white   |
+| 32 - 512     | blue    |
+| 512 - 2048   | green   |
+| 2048 - 8192  | magenta |
+| 8192 - 16384 | yellow  |
 
 
 Provide link to youtube video of song playing
