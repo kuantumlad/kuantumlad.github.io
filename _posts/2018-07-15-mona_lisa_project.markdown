@@ -17,7 +17,7 @@ Each triangle has three vertices which can be assigned a position in the xy-plan
 
 $$\chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}_{target} - \overrightarrow{X}_{pixel}) + (\overrightarrow{C}_{target} - \overrightarrow{C}_{pixel})$$
 
-If the $$\chi^{2}$ of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.
+If the $$\chi^{2}$$ of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.
 
 ### Implementation of HCA ###
 
