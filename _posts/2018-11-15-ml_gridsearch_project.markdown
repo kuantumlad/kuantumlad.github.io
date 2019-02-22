@@ -49,7 +49,7 @@ Search Algorithms:
 
 * Manual search - Possible, only if expert has realistic idea of parameters
 * Grid search - A no no if there are too many parameters or needs fine binning
-* Random search - A preferred method when there are a large number of independent variables that need to be varied. 
+* Random search - Preferred method when there are a large number of independent variables that need to be varied. 
 
 
 
