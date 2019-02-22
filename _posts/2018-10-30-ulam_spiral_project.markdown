@@ -12,9 +12,8 @@ Ulam's Spiral is a fun way to visualize the set of positive real numbers with an
 
 ## Creating the Spiral ##
 
-The spiral is created by creating a square spiral in the counter clockwise direction by starting with the number 1 at the center. The numbers are represented by dots in the image, with white representinga nonprime number while the circle is colored red for a prime number.
+The spiral is created by creating a square spiral in the counter clockwise direction by starting with the number 1 at the center. The numbers are represented by dots in the image, with white representing a nonprime number while the circle is colored red for a prime number.
 
-{% include image.html file="images/ulam_spiral/ulam_spiral_text.png" description="This is an image." %}
 
 ## Visualizing the Spiral ##
 
