@@ -28,7 +28,7 @@
 	<script type="text/x-mathjax-config">
 	  MathJax.Hub.Config({
 	  tex2jax: {
-	  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+	  inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
 	  processEscapes: true
 	  }
 	  });
@@ -71,7 +71,7 @@
 
 <p>Each triangle has three vertices which can be assigned a position in the xy-plane and an RBG color. If there are N triangles which can have either their vertices moved or color values changes then the number of degrees of freedom for this problem is <script type="math/tex">N*(3 * 2)*(3 * 3)</script> . In other words it’s the product of the number of triangles and the number of directions that each of the three vertices can be moved and the number of color values that can be changed for each. The loss function takes into account these degrees of freedom by calculating the <script type="math/tex">\chi^{2}</script> for each iteration</p>
 
-<script type="math/tex; mode=display">\chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}_{target} - \overrightarrow{X}_{pixel}) + (\overrightarrow{C}_{target} - \overrightarrow{C}_{pixel})</script>
+<p>\begin{equation} \chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}<em>{target} - \overrightarrow{X}</em>{pixel}) + (\overrightarrow{C}<em>{target} - \overrightarrow{C}</em>{pixel}) \end{equation}</p>
 
 <p>If the <script type="math/tex">\chi^{2}</script> of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.</p>
 
