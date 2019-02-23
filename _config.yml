@@ -47,7 +47,7 @@ jekyll-mentions:
     base_url: https://github.com
 
 # Build settings
-markdown: kramdown
+markdown: maruku #kramdown
 plugins:
   #- jekyll-paginate
   - jekyll-sitemap
