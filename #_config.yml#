@@ -1,0 +1,54 @@
+# Site
+title: Kuantum Coding
+description: My coding projects and research interest
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+defaults:
+- score:
+    path: ''
+    type: posts
+  values:
+    permalink: "/blog/:title"
+    layout: post
+    author:
+
+# Banner settings
+video: mountains.mp4 
+banner-title: 
+banner-desc: 
+
+# Author settings
+author-pic: face.jpg 
+author-name: Brandon C.
+about-author: Physics Ph.D. Candidate 
+email: brandon.clary@uconn.edu 
+# phone: (949)-531-9226 
+
+
+# Disqus
+discus_identifier: mr-brown # add your discus identifier
+
+# Newsletter
+mailchimp: # add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
+
+# Tracker
+analytics:
+
+# Paginate
+paginate: 12
+paginate_path: "/blog/page:num/" #/page:num/
+
+jekyll-mentions:
+    base_url: https://github.com
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+
+include: [_pages] 
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+
