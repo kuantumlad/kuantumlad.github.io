@@ -5,6 +5,7 @@ img: Mona_Lisa.jpg # Add image post (optional)
 date: 2018-07-15 12:55:00 +0300
 description:  Add post description (optional)
 tag: [Mona Lisa, Hill Climbing, Genetic Algorithm]
+mathjax: true
 ---
 The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented in this project to take a set of 3 sided polygons, triangles, and adjust the color and vertices of each corner of the triangle until the target image is formed by the set of polygons. In this case the image is the famous Mona Lisa by Leonardo da Vinci.
 
