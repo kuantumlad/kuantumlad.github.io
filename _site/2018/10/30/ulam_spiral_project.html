@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Applying a Simple Neural Net to the Iris Data Set - Kuantum Coding</title>
+	<title>Visualize Ulam's Spiral - Kuantum Coding</title>
 	<meta name="description" content="Add post description (optional)">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -53,22 +53,38 @@
   <article class="post">
     <header>
       <div class="post_image">
-        <img src=/assets/img/IrisFLower.jpg alt="Applying a Simple Neural Net to the Iris Data Set">
+        <img src=/assets/img/Ulam_Spiral.jpg alt="Visualize Ulam's Spiral">
       </div>
       <div class="post_description">
-        <p class="post_meta">2018, Apr 15</p>
-        <h1 class="post_title">Applying a Simple Neural Net to the Iris Data Set</h1>
+        <p class="post_meta">2018, Oct 30</p>
+        <h1 class="post_title">Visualize Ulam's Spiral</h1>
       </div>
     </header> <!-- End Header -->
 
     <div class="entry_content">
-      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented</p>
+      <h1 id="ulams-spiral">Ulam’s Spiral</h1>
+<p>Ulam’s Spiral is a fun way to visualize the set of positive real numbers with an emphasis on the set of prime numbers. The spiral was originally thought up by the mathematician Stanislaw Ulam in 1963 while apparently doodling on a napkin at a very boring mathematics lecture.</p>
 
-<blockquote>
-  <p>Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&amp;B post-ironic. <cite>- Lorem Ipsum</cite></p>
-</blockquote>
+<h2 id="creating-the-spiral">Creating the Spiral</h2>
 
-<p>Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90’s waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&amp;B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90’s typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.</p>
+<p>The spiral is created by creating a square spiral in the counter clockwise direction by starting with the number 1 at the center. The numbers are represented by dots in the image, with white representing a nonprime number while the circle is colored red for a prime number.</p>
+
+<h2 id="visualizing-the-spiral">Visualizing the Spiral</h2>
+
+<p>Below is an image created using Ulam’s Spiral technique with 22500 numbers arranged in a square lattice. What is interesting is the formation of lines comprised of prime numbers throughout the image! Ulam notes that this is not unexpected because within those regions of high prime density a prime generating polynomial is thought to be resonsible for this.</p>
+
+<h2 id="coding">Coding</h2>
+
+<p>Rather than use a C++ <code> std::vector </code> container this time a dynamic array containing pointers to n instances of <code> sf::CircleShape </code> was used for the project. The properties of the CircleShape class are altered depending on whether the number associated with the instance was prime or not.</p>
+
+<p>Below is example code illustrating a dynamically allocated array of size N for type <code> sf::CircleShape* </code>.</p>
+
+<p><code>
+sf::CircleShape **ulam_grid_circles = new sf::CircleShape*[N];
+</code></p>
+
+<p>Remember to delete the object in memory to avoid memory allocation issues using <code> delete[] </code></p>
+
 
     </div>
     
@@ -76,26 +92,18 @@
       <footer class="post_footer cf">
         <div class="post_share">
           <span>Share:</span>
-          <a href="https://twitter.com/intent/tweet?text=Applying a Simple Neural Net to the Iris Data Set&url=http://localhost:4000/blog/ml_basicnn_project" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/ml_basicnn_project" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/blog/ml_basicnn_project" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/intent/tweet?text=Visualize Ulam's Spiral&url=http://localhost:4000/2018/10/30/ulam_spiral_project.html" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/2018/10/30/ulam_spiral_project.html" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/2018/10/30/ulam_spiral_project.html" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
         </div>
         <div class="post_tag">
           <span>Tags:</span>
           
-          <a href="/tags#Iris Data Set" class="tag">Iris Data Set</a>
+          <a href="/tags#Ulam's Spiral" class="tag">Ulam's Spiral</a>
           
-          <a href="/tags#Neural Net" class="tag">Neural Net</a>
+          <a href="/tags#Prime Numbers" class="tag">Prime Numbers</a>
           
-          <a href="/tags#One Layer Net" class="tag">One Layer Net</a>
-          
-          <a href="/tags#Two Layer Net" class="tag">Two Layer Net</a>
-          
-          <a href="/tags#Classification" class="tag">Classification</a>
-          
-          <a href="/tags#Python" class="tag">Python</a>
-          
-          <a href="/tags#Multivariate Data" class="tag">Multivariate Data</a>
+          <a href="/tags#Math" class="tag">Math</a>
           
         </div>
       </footer>
@@ -112,7 +120,7 @@
         <p class="author_subtitle">Physics Ph.D. Candidate</p>
         <div class="author_social">
           
-          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:brandon.clary@uconn.edu">brandon.clary@uconn.edu</a></span>
+          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:your-email@domain.com">your-email@domain.com</a></span>
           
           
           
@@ -133,27 +141,27 @@
       <div class="recent_list">
         
           
-            <a href="/blog/fft_music_project" class="recent_item" style="background-image: url( /assets/img/music_spect.jpg )"><span>FFT Music Visualizer with SFML</span></a>
+            <a href="/2019/01/15/fft_music_project.html" class="recent_item" style="background-image: url( /assets/img/music_spect.jpg )"><span>FFT Music Visualizer with SFML</span></a>
           
         
           
-            <a href="/blog/ml_gridsearch_project" class="recent_item" style="background-image: url( /assets/img/GridSearch.jpg )"><span>Parameter Optimization with Grid Search Algorithm</span></a>
+            <a href="/2018/11/15/ml_gridsearch_project.html" class="recent_item" style="background-image: url( /assets/img/GridSearch.jpg )"><span>Parameter Optimization with Grid Search Algorithm</span></a>
           
         
           
-            <a href="/blog/ulam_spiral_project" class="recent_item" style="background-image: url( /assets/img/Ulam_Spiral.jpg )"><span>Visualize Ulam's Spiral</span></a>
+            <a href="/2018/10/30/ulam_spiral_project.html" class="recent_item" style="background-image: url( /assets/img/Ulam_Spiral.jpg )"><span>Visualize Ulam's Spiral</span></a>
           
         
           
-            <a href="/blog/kaggle_salt_project" class="recent_item" style="background-image: url( /assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
+            <a href="/2018/09/15/kaggle_salt_project.html" class="recent_item" style="background-image: url( /assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
           
         
           
-            <a href="/blog/mona_lisa_project" class="recent_item" style="background-image: url( /assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
+            <a href="/2018/07/15/mona_lisa_project.html" class="recent_item" style="background-image: url( /assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
           
         
           
-            <a href="/blog/ml_linreg_project" class="recent_item" style="background-image: url( /assets/img/LinReg.jpg )"><span>Linear Regression</span></a>
+            <a href="/2018/07/15/ml_linreg_project.html" class="recent_item" style="background-image: url( /assets/img/LinReg.jpg )"><span>Linear Regression</span></a>
           
         
       </div>
@@ -168,7 +176,7 @@
     <script>
       (function() {
           var d = document, s = d.createElement('script');
-          s.src = '//mr-brown.disqus.com/embed.js';
+          s.src = '//BrandonC.disqus.com/embed.js';
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
       })();
@@ -189,10 +197,10 @@
   <li><a href="#" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>      
   
   
-  <li><a href="default" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+  <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="default" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+  <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
   
   
   <li><a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -201,7 +209,7 @@
   <li><a href="#" target="_blank"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="default" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+  <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
   
 </ul>
     <div class="copyright">

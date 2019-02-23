@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Linear Regression - Kuantum Coding</title>
+	<title>Generate Da Vinci's Mona Lisa with Polygons? - Kuantum Coding</title>
 	<meta name="description" content="Add post description (optional)">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -53,22 +53,32 @@
   <article class="post">
     <header>
       <div class="post_image">
-        <img src=/assets/img/LinReg.jpg alt="Linear Regression">
+        <img src=/assets/img/Mona_Lisa.jpg alt="Generate Da Vinci's Mona Lisa with Polygons?">
       </div>
       <div class="post_description">
         <p class="post_meta">2018, Jul 15</p>
-        <h1 class="post_title">Linear Regression</h1>
+        <h1 class="post_title">Generate Da Vinci's Mona Lisa with Polygons?</h1>
       </div>
     </header> <!-- End Header -->
 
     <div class="entry_content">
-      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented</p>
+      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented in this project to take a set of 3 sided polygons, triangles, and adjust the color and vertices of each corner of the triangle until the target image is formed by the set of polygons. In this case the image is the famous Mona Lisa by Leonardo da Vinci.</p>
 
-<blockquote>
-  <p>Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&amp;B post-ironic. <cite>- Lorem Ipsum</cite></p>
-</blockquote>
+<h3 id="the-hill-climbing-algorithm-hca">The Hill Climbing Algorithm (HCA)</h3>
+<p>The Hill Climbing algorithm is an optimization algorithm that iteratively finds the best solution for the set of parameters against the target solution. For example the initial state of the problem is chosen at random and parameters are tweaked randomly until the next best solution is found. This process is iteratively done in order to minimize the loss.</p>
 
-<p>Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90’s waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&amp;B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90’s typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.</p>
+<h4 id="hca-with-images">HCA with Images</h4>
+
+<p>Each triangle has three vertices which can be assigned a position in the xy-plane and an RBG color. If there are N triangles which can have either their vertices moved or color values changes then the number of degrees of freedom for this problem is <script type="math/tex">N*(3 * 2)*(3 * 3)</script> . In other words it’s the product of the number of triangles and the number of directions that each of the three vertices can be moved and the number of color values that can be changed for each. The loss function takes into account these degrees of freedom by calculating the <script type="math/tex">\chi^{2}</script> for each iteration</p>
+
+<script type="math/tex; mode=display">\chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}_{target} - \overrightarrow{X}_{pixel}) + (\overrightarrow{C}_{target} - \overrightarrow{C}_{pixel})</script>
+
+<p>If the <script type="math/tex">\chi^{2}</script> of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.</p>
+
+<h3 id="implementation-of-hca">Implementation of HCA</h3>
+
+<p>There are two ways to implement this algorithm: (1) iterate toward the best solution that can fit the entire image, (2) split the image into a grid and fit more triangles within the grid. After successfully implementing the first method I split the image into a grid to achieve a better composite image of Mona Lisa.</p>
+
 
     </div>
     
@@ -76,24 +86,18 @@
       <footer class="post_footer cf">
         <div class="post_share">
           <span>Share:</span>
-          <a href="https://twitter.com/intent/tweet?text=Linear Regression&url=http://localhost:4000/blog/ml_linreg_project" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/ml_linreg_project" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/blog/ml_linreg_project" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/intent/tweet?text=Generate Da Vinci's Mona Lisa with Polygons?&url=http://localhost:4000/2018/07/15/mona_lisa_project.html" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/2018/07/15/mona_lisa_project.html" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/2018/07/15/mona_lisa_project.html" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
         </div>
         <div class="post_tag">
           <span>Tags:</span>
           
-          <a href="/tags#Linear Regression" class="tag">Linear Regression</a>
+          <a href="/tags#Mona Lisa" class="tag">Mona Lisa</a>
           
-          <a href="/tags#Binary Classification" class="tag">Binary Classification</a>
+          <a href="/tags#Hill Climbing" class="tag">Hill Climbing</a>
           
-          <a href="/tags#Linear Data" class="tag">Linear Data</a>
-          
-          <a href="/tags#C++" class="tag">C++</a>
-          
-          <a href="/tags#ROOT" class="tag">ROOT</a>
-          
-          <a href="/tags#Math" class="tag">Math</a>
+          <a href="/tags#Genetic Algorithm" class="tag">Genetic Algorithm</a>
           
         </div>
       </footer>
@@ -110,7 +114,7 @@
         <p class="author_subtitle">Physics Ph.D. Candidate</p>
         <div class="author_social">
           
-          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:brandon.clary@uconn.edu">brandon.clary@uconn.edu</a></span>
+          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:your-email@domain.com">your-email@domain.com</a></span>
           
           
           
@@ -131,27 +135,27 @@
       <div class="recent_list">
         
           
-            <a href="/blog/fft_music_project" class="recent_item" style="background-image: url( /assets/img/music_spect.jpg )"><span>FFT Music Visualizer with SFML</span></a>
+            <a href="/2019/01/15/fft_music_project.html" class="recent_item" style="background-image: url( /assets/img/music_spect.jpg )"><span>FFT Music Visualizer with SFML</span></a>
           
         
           
-            <a href="/blog/ml_gridsearch_project" class="recent_item" style="background-image: url( /assets/img/GridSearch.jpg )"><span>Parameter Optimization with Grid Search Algorithm</span></a>
+            <a href="/2018/11/15/ml_gridsearch_project.html" class="recent_item" style="background-image: url( /assets/img/GridSearch.jpg )"><span>Parameter Optimization with Grid Search Algorithm</span></a>
           
         
           
-            <a href="/blog/ulam_spiral_project" class="recent_item" style="background-image: url( /assets/img/Ulam_Spiral.jpg )"><span>Visualize Ulam's Spiral</span></a>
+            <a href="/2018/10/30/ulam_spiral_project.html" class="recent_item" style="background-image: url( /assets/img/Ulam_Spiral.jpg )"><span>Visualize Ulam's Spiral</span></a>
           
         
           
-            <a href="/blog/kaggle_salt_project" class="recent_item" style="background-image: url( /assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
+            <a href="/2018/09/15/kaggle_salt_project.html" class="recent_item" style="background-image: url( /assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
           
         
           
-            <a href="/blog/mona_lisa_project" class="recent_item" style="background-image: url( /assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
+            <a href="/2018/07/15/mona_lisa_project.html" class="recent_item" style="background-image: url( /assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
           
         
           
-            <a href="/blog/ml_linreg_project" class="recent_item" style="background-image: url( /assets/img/LinReg.jpg )"><span>Linear Regression</span></a>
+            <a href="/2018/07/15/ml_linreg_project.html" class="recent_item" style="background-image: url( /assets/img/LinReg.jpg )"><span>Linear Regression</span></a>
           
         
       </div>
@@ -166,7 +170,7 @@
     <script>
       (function() {
           var d = document, s = d.createElement('script');
-          s.src = '//mr-brown.disqus.com/embed.js';
+          s.src = '//BrandonC.disqus.com/embed.js';
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
       })();
@@ -187,10 +191,10 @@
   <li><a href="#" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>      
   
   
-  <li><a href="default" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+  <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="default" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+  <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
   
   
   <li><a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -199,7 +203,7 @@
   <li><a href="#" target="_blank"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="default" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+  <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
   
 </ul>
     <div class="copyright">
