@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Parameter Optimization with Grid Search Algorithm - Kuantum Coding</title>
+	<title>Linear Regression - Kuantum Coding</title>
 	<meta name="description" content="Add post description (optional)">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta property="og:image" content="">
-	<link rel="shortcut icon" href="/bef/assets/img/favicon/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="/bef/assets/img/favicon/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/bef/assets/img/favicon/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/bef/assets/img/favicon/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
 	<!-- Chrome, Firefox OS and Opera -->
 	<meta name="theme-color" content="#d25469">
 	<!-- Windows Phone -->
@@ -19,19 +19,32 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#d25469">
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-	<link rel="stylesheet" href="/bef/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
 	<!-- Styles -->
-	<link rel="stylesheet" href="/bef/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!-- Equations -->
+	<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+	  tex2jax: {
+	  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+	  processEscapes: true
+	  }
+	  });
+	</script>
+	       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+	
 </head>
 
 <body>
 
   
 <header class="main_header">
- <!-- <a href="/bef/" class="logo">B<span>ef</span></a> -->
+ <!-- <a href="/" class="logo">B<span>ef</span></a> -->
   <nav class="main_menu">
-    <a href="/bef/about/">About</a>
-    <a href="/bef/contact/">Contact</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
   </nav>
 </header> <!-- End Section Header -->
 
@@ -40,11 +53,11 @@
   <article class="post">
     <header>
       <div class="post_image">
-        <img src=/bef/assets/img/GridSearch.jpg alt="Parameter Optimization with Grid Search Algorithm">
+        <img src=/assets/img/LinReg.jpg alt="Linear Regression">
       </div>
       <div class="post_description">
-        <p class="post_meta">2018, Nov 15</p>
-        <h1 class="post_title">Parameter Optimization with Grid Search Algorithm</h1>
+        <p class="post_meta">2018, Jul 15</p>
+        <h1 class="post_title">Linear Regression</h1>
       </div>
     </header> <!-- End Header -->
 
@@ -63,22 +76,24 @@
       <footer class="post_footer cf">
         <div class="post_share">
           <span>Share:</span>
-          <a href="https://twitter.com/intent/tweet?text=Parameter Optimization with Grid Search Algorithm&url=http://localhost:4000/ml_gridsearch_project/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/ml_gridsearch_project/" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/ml_gridsearch_project/" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/intent/tweet?text=Linear Regression&url=http://localhost:4000/blog/ml_linreg_project" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/ml_linreg_project" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/blog/ml_linreg_project" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
         </div>
         <div class="post_tag">
           <span>Tags:</span>
           
-          <a href="/bef/tags#Parameter Optimization" class="tag">Parameter Optimization</a>
+          <a href="/tags#Linear Regression" class="tag">Linear Regression</a>
           
-          <a href="/bef/tags#Chi2 Minimization" class="tag">Chi2 Minimization</a>
+          <a href="/tags#Binary Classification" class="tag">Binary Classification</a>
           
-          <a href="/bef/tags#Grid Search" class="tag">Grid Search</a>
+          <a href="/tags#Linear Data" class="tag">Linear Data</a>
           
-          <a href="/bef/tags#Algorithm" class="tag">Algorithm</a>
+          <a href="/tags#C++" class="tag">C++</a>
           
-          <a href="/bef/tags#Math" class="tag">Math</a>
+          <a href="/tags#ROOT" class="tag">ROOT</a>
+          
+          <a href="/tags#Math" class="tag">Math</a>
           
         </div>
       </footer>
@@ -88,14 +103,14 @@
   <section class="author cf">
     <div class="post_wrapper">
       <div class="author_image">
-        <img src="/bef/assets/img/face.jpg" alt="Author face">
+        <img src="/assets/img/face.jpg" alt="Author face">
       </div>
       <div class="author_info">
         <h2 class="author_title">Brandon C.</h2>
         <p class="author_subtitle">Physics Ph.D. Candidate</p>
         <div class="author_social">
           
-          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:your-email@domain.com">your-email@domain.com</a></span>
+          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:brandon.clary@uconn.edu">brandon.clary@uconn.edu</a></span>
           
           
           
@@ -116,27 +131,27 @@
       <div class="recent_list">
         
           
-            <a href="/fft_music_project/" class="recent_item" style="background-image: url( /bef/assets/img/music_spect.jpg )"><span>FFT Music Visualizer with SFML</span></a>
+            <a href="/blog/fft_music_project" class="recent_item" style="background-image: url( /assets/img/music_spect.jpg )"><span>FFT Music Visualizer with SFML</span></a>
           
         
           
-            <a href="/ml_gridsearch_project/" class="recent_item" style="background-image: url( /bef/assets/img/GridSearch.jpg )"><span>Parameter Optimization with Grid Search Algorithm</span></a>
+            <a href="/blog/ml_gridsearch_project" class="recent_item" style="background-image: url( /assets/img/GridSearch.jpg )"><span>Parameter Optimization with Grid Search Algorithm</span></a>
           
         
           
-            <a href="/ulam_spiral_project/" class="recent_item" style="background-image: url( /bef/assets/img/Ulam_Spiral.jpg )"><span>Visualize Ulam's Spiral</span></a>
+            <a href="/blog/ulam_spiral_project" class="recent_item" style="background-image: url( /assets/img/Ulam_Spiral.jpg )"><span>Visualize Ulam's Spiral</span></a>
           
         
           
-            <a href="/kaggle_salt_project/" class="recent_item" style="background-image: url( /bef/assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
+            <a href="/blog/kaggle_salt_project" class="recent_item" style="background-image: url( /assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
           
         
           
-            <a href="/mona_lisa_project/" class="recent_item" style="background-image: url( /bef/assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
+            <a href="/blog/mona_lisa_project" class="recent_item" style="background-image: url( /assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
           
         
           
-            <a href="/ml_linreg_project/" class="recent_item" style="background-image: url( /bef/assets/img/LinReg.jpg )"><span>Linear Regression</span></a>
+            <a href="/blog/ml_linreg_project" class="recent_item" style="background-image: url( /assets/img/LinReg.jpg )"><span>Linear Regression</span></a>
           
         
       </div>
@@ -172,10 +187,10 @@
   <li><a href="#" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>      
   
   
-  <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+  <li><a href="default" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+  <li><a href="default" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
   
   
   <li><a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -184,7 +199,7 @@
   <li><a href="#" target="_blank"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+  <li><a href="default" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
   
 </ul>
     <div class="copyright">
@@ -197,9 +212,9 @@
   
 <div class="top" title="Top"><i class="fa fa-chevron-up" aria-hidden="true"></i></div> <!-- End Top Scroll -->
   
-<script src="/bef/assets/js/jquery-3.2.1.min.js"></script>
-<script src="/bef/assets/js/jquery.vide.min.js"></script>
-<script src="/bef/assets/js/custom.js"></script>
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/js/jquery.vide.min.js"></script>
+<script src="/assets/js/custom.js"></script>
 <!-- End Javascript -->
 
   <script>

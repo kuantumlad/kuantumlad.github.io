@@ -7,10 +7,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta property="og:image" content="">
-	<link rel="shortcut icon" href="/bef/assets/img/favicon/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="/bef/assets/img/favicon/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/bef/assets/img/favicon/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/bef/assets/img/favicon/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
 	<!-- Chrome, Firefox OS and Opera -->
 	<meta name="theme-color" content="#d25469">
 	<!-- Windows Phone -->
@@ -19,25 +19,38 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#d25469">
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-	<link rel="stylesheet" href="/bef/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
 	<!-- Styles -->
-	<link rel="stylesheet" href="/bef/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!-- Equations -->
+	<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+	  tex2jax: {
+	  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+	  processEscapes: true
+	  }
+	  });
+	</script>
+	       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+	
 </head>
 
 <body>
 
     
 <header class="main_header">
- <!-- <a href="/bef/" class="logo">B<span>ef</span></a> -->
+ <!-- <a href="/" class="logo">B<span>ef</span></a> -->
   <nav class="main_menu">
-    <a href="/bef/about/">About</a>
-    <a href="/bef/contact/">Contact</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
   </nav>
 </header> <!-- End Section Header -->
 
 
   
-<section id="banner" data-vide-bg="/bef/assets/video/mountains.mp4" data-vide-options="posterType: jpg, loop: true, muted: false, position: 50% 50%">
+<section id="banner" data-vide-bg="/assets/video/mountains.mp4" data-vide-options="posterType: jpg, loop: true, muted: false, position: 50% 50%">
   <div class="wrapper">
     <div class="content">
       <h1 class="title">theEdge</h1>
@@ -52,9 +65,9 @@
       <div class="wrapper flex-row">
       
   <div class="chapter">
-    <a href="/bef/fft_music_project/">
+    <a href="/blog/fft_music_project">
       
-      <img src=/bef/assets/img/music_spect.jpg alt="FFT Music Visualizer with SFML">
+      <img src=/assets/img/music_spect.jpg alt="FFT Music Visualizer with SFML">
       
     </a>
     <div class="chapter_inner">
@@ -64,9 +77,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/ml_gridsearch_project/">
+    <a href="/blog/ml_gridsearch_project">
       
-      <img src=/bef/assets/img/GridSearch.jpg alt="Parameter Optimization with Grid Search Algorithm">
+      <img src=/assets/img/GridSearch.jpg alt="Parameter Optimization with Grid Search Algorithm">
       
     </a>
     <div class="chapter_inner">
@@ -76,9 +89,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/ulam_spiral_project/">
+    <a href="/blog/ulam_spiral_project">
       
-      <img src=/bef/assets/img/Ulam_Spiral.jpg alt="Visualize Ulam's Spiral">
+      <img src=/assets/img/Ulam_Spiral.jpg alt="Visualize Ulam's Spiral">
       
     </a>
     <div class="chapter_inner">
@@ -88,9 +101,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/kaggle_salt_project/">
+    <a href="/blog/kaggle_salt_project">
       
-      <img src=/bef/assets/img/Salt.jpg alt="Finding the Salt in the Rough">
+      <img src=/assets/img/Salt.jpg alt="Finding the Salt in the Rough">
       
     </a>
     <div class="chapter_inner">
@@ -100,9 +113,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/mona_lisa_project/">
+    <a href="/blog/mona_lisa_project">
       
-      <img src=/bef/assets/img/Mona_Lisa.jpg alt="Generate Da Vinci's Mona Lisa with Polygons?">
+      <img src=/assets/img/Mona_Lisa.jpg alt="Generate Da Vinci's Mona Lisa with Polygons?">
       
     </a>
     <div class="chapter_inner">
@@ -112,9 +125,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/ml_linreg_project/">
+    <a href="/blog/ml_linreg_project">
       
-      <img src=/bef/assets/img/LinReg.jpg alt="Linear Regression">
+      <img src=/assets/img/LinReg.jpg alt="Linear Regression">
       
     </a>
     <div class="chapter_inner">
@@ -124,9 +137,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/ml_basicnn_project/">
+    <a href="/blog/ml_basicnn_project">
       
-      <img src=/bef/assets/img/IrisFLower.jpg alt="Applying a Simple Neural Net to the Iris Data Set">
+      <img src=/assets/img/IrisFLower.jpg alt="Applying a Simple Neural Net to the Iris Data Set">
       
     </a>
     <div class="chapter_inner">
@@ -136,9 +149,9 @@
   </div>
 
   <div class="chapter">
-    <a href="/bef/speeder_bike_project/">
+    <a href="/blog/speeder_bike_project">
       
-      <img src=/bef/assets/img/SpeederBike.jpg alt="Simple Interactive Speeder Bike Game">
+      <img src=/assets/img/SpeederBike.jpg alt="Simple Interactive Speeder Bike Game">
       
     </a>
     <div class="chapter_inner">
@@ -188,10 +201,10 @@
   <li><a href="#" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>      
   
   
-  <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+  <li><a href="default" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+  <li><a href="default" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
   
   
   <li><a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -200,7 +213,7 @@
   <li><a href="#" target="_blank"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
   
   
-  <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+  <li><a href="default" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
   
 </ul>
     <div class="copyright">
@@ -213,9 +226,9 @@
   
 <div class="top" title="Top"><i class="fa fa-chevron-up" aria-hidden="true"></i></div> <!-- End Top Scroll -->
   
-<script src="/bef/assets/js/jquery-3.2.1.min.js"></script>
-<script src="/bef/assets/js/jquery.vide.min.js"></script>
-<script src="/bef/assets/js/custom.js"></script>
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/js/jquery.vide.min.js"></script>
+<script src="/assets/js/custom.js"></script>
 <!-- End Javascript -->
 
   <script>
