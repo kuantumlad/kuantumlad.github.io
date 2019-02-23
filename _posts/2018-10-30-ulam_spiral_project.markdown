@@ -8,7 +8,14 @@ tag: [Ulam's Spiral, Prime Numbers, Math]
 ---
 
 # Ulam's Spiral #
-Ulam's Spiral is a fun way to visualize the set of positive real numbers with an emphasis on the set of prime numbers. The spiral was originally thought up by the mathematician Stanislaw Ulam in 1963 while apparently doodling on a napkin at a very boring mathematics lecture.
+Ulam's Spiral is a fun way to visualize the set of positive real numbers with an emphasis on the set of prime numbers. The spiral was originally thought up by the mathematician Stanislaw Ulam in 1963 while apparently doodling on a napkin at a very boring mathematics lecture
+.
+ <figure>
+   <img src="/images/ulam_spiral/ulam_spiral_text.png" alt="" height="99%" width="99%">
+   <figcaption>Fig. 1 - There are three data sets labeled A, B, and C. The goal
+   The procedure is described in more detail below.</figcaption>
+ </figure>
+	       
 
 ## Creating the Spiral ##
 
