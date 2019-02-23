@@ -66,22 +66,22 @@
 
 <h1 id="search-algorithm-overview">Search Algorithm Overview</h1>
 
-<p>The goal of a grid search algorithm is to find the maximum of a known function, <script type="math/tex">f(\vec{\theta} ), where the parameters of the model are given by</script> \vec{\theta} = (\theta_{1}, \theta_{2}, … ). One of the primary differences of this algorithms from others is that this is a gradient descent-less technique for finding the maximum of a model. All together there are three approches for a search algorithm. The first is a manual search of the parameters of the model guided by intuition or luck. In some cases this can work if there is some knowledge about where the parameters should be, but typically this method can become time consumming as the number of free parameters increases. Second is a grid search where the parameter space is exhaustingly searched. While an improvement over the first method this one can become increasingly time consuming as the number of parameters in the model grows, and it can miss the best parameters. Lastly, there is a random grid search which randomly picks a finite subset of the available parameters. The advantage to the random grid search is that is ideal for a large parameter model and can approximate the maximizing parameters in less time than a grid search.</p>
+<p>The goal of a grid search algorithm is to find the maximum of a known function, <script type="math/tex">f(\vec{\theta} )</script>, where the parameters of the model are given by <script type="math/tex">\vec{\theta} = (\theta_{1}, \theta_{2}, ... )</script>. One of the primary differences of this algorithms from others is that this is a gradient descent-less technique for finding the maximum of a model. All together there are three approches for a search algorithm. The first is a manual search of the parameters of the model guided by intuition or luck. In some cases this can work if there is some knowledge about where the parameters should be, but typically this method can become time consumming as the number of free parameters increases. Second is a grid search where the parameter space is exhaustingly searched. While an improvement over the first method this one can become increasingly time consuming as the number of parameters in the model grows, and it can miss the best parameters. Lastly, there is a random grid search which randomly picks a finite subset of the available parameters. The advantage to the random grid search is that is ideal for a large parameter model and can approximate the maximizing parameters in less time than a grid search.</p>
 
 <h2 id="the-toy-model">The Toy Model</h2>
 
 <p>For this example the toy model has a 3D parameter space (<script type="math/tex">i=1,2,3</script> ) with the model defines as below:</p>
 
-<script type="math/tex; mode=display">f( \mu_{i}, \sigma_{i}, x_{i} ) = e^{ \frac{(\mu_{i} - x_{i})^{2} }{2\sigma^{2}_{i}} }</script>
+<script type="math/tex; mode=display">f( \mu_{i}, \sigma_{i}, x_{i} ) = e^{- \frac{(\mu_{i} - x_{i})^{2} }{2\sigma^{2}_{i}} }</script>
 
 <p>The true model results is defined as such:</p>
 
-<script type="math/tex; mode=display">F( f_{1}, f_{2}, f_{3} )_true = f_{1} \times f_{2} \times f_{3}</script>
+<script type="math/tex; mode=display">F( f_{1}, f_{2}, f_{3} )_{true} = f_{1} \times f_{2} \times f_{3}</script>
 
 <p>where the maximum value of the model is defined to be equal to one and has independent variables ranges given as <script type="math/tex">% <![CDATA[
 x_{i,min} < x_{i} < x_{i,max} %]]></script></p>
 
-<p>The goal is to find the value of each of the independent variables <script type="math/tex">x_{i}</script> that maximizes the model. Benchmarking of the results is done using a $$ \chi^{2} = ( F_{pred} - F_{true} )^{2} for each grid point, which are then compared to the true parameter values.</p>
+<p>The goal is to find the value of each of the independent variables <script type="math/tex">x_{i}</script> that maximizes the model. Benchmarking of the results is done using a <script type="math/tex">\chi^{2} = ( F_{pred} - F_{true} )^{2}</script> for each grid point, which are then compared to the true parameter values.</p>
 
 <h2 id="grid-search">Grid Search</h2>
 

@@ -40,17 +40,17 @@ mailchimp: # add your MailChimp form identifier. For example - blogenjoyfreedom.
 analytics:
 
 # Paginate
-#paginate: 12
-#paginate_path: "/blog/page:num/" #/page:num/
+paginate: 12
+paginate_path: /page:num/
 
 jekyll-mentions:
     base_url: https://github.com
 
 # Build settings
-markdown: maruku #kramdown
+markdown: kramdown
 plugins:
-  #- jekyll-paginate
+  - jekyll-paginate
   - jekyll-sitemap
 
-include: [_pages]
+#include: [_pages]
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
