@@ -84,6 +84,13 @@
 <p>Below is an image created using Ulam's Spiral technique with 22500 numbers arranged in a square lattice. What is interesting is the formation of lines comprised of prime numbers throughout the image! Ulam notes that this is not unexpected because within those regions of high prime density a prime generating polynomial is thought to be resonsible for this.
 </p>
 
+<div style="text-align: center">
+<figure>
+   <img src="/images/ulam_spiral/ulam_spiral.png" alt="" height="50%" width="50%" />
+   <figcaption>Fig. 2 - Pictorial representation of Ulam's spiral for the first 22500 numbers starting from 1. </figcaption>
+ </figure>
+ </div>
+
 <h2 id="coding">Coding</h2>
 
 <p>Rather than use a C++ <code> std::vector </code> container this time a dynamic array containing pointers to n instances of <code> sf::CircleShape </code> was used for the project. The properties of the CircleShape class are altered depending on whether the number associated with the instance was prime or not.
