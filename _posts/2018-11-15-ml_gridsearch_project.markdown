@@ -1,14 +1,15 @@
 ---
 layout: post
 title: "Parameter Optimization with Grid Search Algorithm"
-img: GridSearch.jpg # Add image post (optional)
+img: grid_random.png #GridSearch.jpg # Add image post (optional)
 date: 2018-11-15 12:55:00 +0300
 description:  Add post description (optional)
 tag: [Parameter Optimization, Chi2 Minimization, Grid Search, Algorithm, Math]
 ---
 
+<p>
 During my PhD at Jefferson Lab there was one project I was involved with was the alignment of the drift chambers, a detector built to aid in the reconstruction of charged particles so as to measure their momentum. While other methods were employed, I explored the use of how a grid search algorithm could potentially be used by starting with a simple example, which I illustrate below.
-
+</p>
 
 # Search Algorithm Overview
 
@@ -17,31 +18,73 @@ The goal of a grid search algorithm is to find the maximum of a known function, 
 
 ## The Toy Model
 
+
 For this example the toy model has a 3D parameter space ($$ i=1,2,3 $$ ) with the model defines as below:
+
 
 $$ f( \mu_{i}, \sigma_{i}, x_{i} ) = e^{- \frac{(\mu_{i} - x_{i})^{2} }{2\sigma^{2}_{i}} } $$
 
-
+<p>
 The true model results is defined as such:
+</p>
 
 $$ F( f_{1}, f_{2}, f_{3} )_{true} = f_{1} \times f_{2} \times f_{3} $$
 
+
 where the maximum value of the model is defined to be equal to one and has independent variables ranges given as $$x_{i,min} < x_{i} < x_{i,max} $$
+
 
 The goal is to find the value of each of the independent variables $$ x_{i} $$ that maximizes the model. Benchmarking of the results is done using a $$ \chi^{2} = ( F_{pred} - F_{true} )^{2} $$ for each grid point, which are then compared to the true parameter values. 
 
-## Grid Search
 
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/grid_search/models.png" alt="" height="50%" width="50%">
+   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+ </figure>
+ </div>
+
+
+
+## Grid Search
 
 For the grid search we divide the independent variables over a range, $$x_{min}$$ to $$x_{max}$$, with a minimum spacing $$s_{i}$$ which may be determined by the resolution of the measurements. The number of grid points in each dimension is thus:
 
 $$ N_{i} = \frac{ x_{i,max} - x_{i,min} }{s_i}. $$
 
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/grid_search/grid_gridded.png" alt="" height="50%" width="50%">
+   <figcaption>Fig. 2 - Breaking the parameter space down into a searchable grid. Each blue point represents a 3D parameter vector that is used to determine its corresponding chi2 value. </figcaption>
+ </figure>
+</div>
+
+
+
 In this example the number of grid points for 3 independent variables is $$ 12 \times 20 \times 10$$ which is equal to 2400 points. The final result of the grid search yields (5,3,8) for the coordinates that maximized the model function. 
+
 
 ## Random Search
 
+<div style="text-align: center">
+<figure>
+   <img src="/images/grid_search/grid_random.png" alt="" height="50%" width="50%">
+   <figcaption>Fig. 3 - Breaking the parameter space down into a searchable grid. Each blue point represents a 3D parameter vector that is used to determine its corresponding chi2 value. </figcaption>
+ </figure>
+ </div>
+
+
 Instead of drawing from discrete locations within the 3D grid for the model parameters, they are drawn by generating a random number within the range of the independent variable. The number of iterations for this process is defined by the user, and is in general less than the number of grid search points. This method yields the final independent coorindates of (5.24, 3.00, 7.95)! Not too bad with less than half the iterations of that from the grid search!
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/grid_search/graph_random_ch2.png " alt="" height="50%" width="50%">
+   <figcaption>Fig. 4 - All chi2 values for each of the 1000 iterations from the random search method. The iteration with the smallest chi2 value is chosen as the best answer. </figcaption>
+ </figure>
+ </div>
+
 
 # TLDR
 

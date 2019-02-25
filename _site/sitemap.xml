@@ -35,4 +35,16 @@
 <url>
 <loc>http://localhost:4000/</loc>
 </url>
+<url>
+<loc>http://localhost:4000/images/grid_search/graph_random_ch2.pdf</loc>
+<lastmod>2019-02-24T22:09:41-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/images/grid_search/grid_random.pdf</loc>
+<lastmod>2019-02-24T22:10:31-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/images/grid_search/models.pdf</loc>
+<lastmod>2019-02-24T22:09:40-05:00</lastmod>
+</url>
 </urlset>
