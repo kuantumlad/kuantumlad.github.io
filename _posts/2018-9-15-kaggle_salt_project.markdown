@@ -6,8 +6,11 @@ date: 2018-9-15 12:55:00 +0300
 description:  Add post description (optional)
 tag: [Kaggle, Convolutional Neural Net, Deep Neural Net, Image Segmentation, Salt]
 ---
-The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented 
 
-> Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&B post-ironic. <cite>- Lorem Ipsum</cite>
+I participated in the TGS Salt Identification Challenge hosted on Kaggle. After having created the Mona Lisa using polygons this was an obvisou transition into the space of machine learning with images.
 
-Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90's waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90's typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.
+TGS poised the problem of creating an algorithm that can identify salt deposits in a seismic image. Since this problem fell into the category of image segmentation a U-net was trained using the supplied training images which consisted of the sesmic images and their masks which marked the salt deposits.
+
+Below is a link to the Jupyter notebook that I created outlining the project goal, building the U-Net, and finally the analysis of the results before submission.
+
+<a href="https://github.com/kuantumlad/kaggle-tgs_salt/blob/master/old_files/kaggle-tgs_salt_v2.ipynb"> Kaggle TGS Salt Identification Challenge</a>

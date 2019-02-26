@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "Applying a Simple Neural Net to the Iris Data Set"
-img: IrisFLower.jpg # Add image post (optional)
+img: IrisFlower.jpg # Add image post (optional)
 date: 2018-04-15 12:55:00 +0300
-description:  Add post description (optional)
+description:  
 tag: [Iris Data Set, Neural Net, One Layer Net, Two Layer Net, Classification, Python, Multivariate Data]
 ---
+
 The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented 
 
 > Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&B post-ironic. <cite>- Lorem Ipsum</cite>
