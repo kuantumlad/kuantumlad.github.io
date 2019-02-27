@@ -7,8 +7,44 @@ description:
 tag: [Iris Data Set, Neural Net, One Layer Net, Two Layer Net, Classification, Python, Multivariate Data]
 ---
 
-The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented 
+# Overview
 
-> Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&B post-ironic. <cite>- Lorem Ipsum</cite>
+I wanted to explore the fundamental concepts of a neural net without the use of any open source libraries so I created a three layers neural net using the sigmoid function between the layers and a softmax output at the final layer in a jupyter notebook. I then apply the neural net to the canonical Iris data set provided by the University of California, Irvine.
 
-Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90's waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90's typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.
+
+# Three Layer Neural Net
+
+## One-Hot Encoding
+
+In the case of the iris data set we are working with categorical data which is data that does not have numerical labels. The iris species name is an example of this. While some machine learning algorithms can use or are indifferent to categorical labels, some are not (neural nets).
+Thus we require a method to transform the non-numerical labels into integer values for a machine learning algorithm to process. In this post I use <i> one-hot encoding </i> which assigns a binary value to the $$i^{th}$$ data element. This looks like
+
+| species 1 | species 2 | species 3 |
+|-----------| ----------| ----------|
+|  0        |  1        | 0         |
+|  1        |  0        | 0         |
+|  0        |  0        | 1         |
+|  .        |  .        | .         |
+
+
+## Creating the Neural Net
+
+Once the one-hot encoding is complete it is time to set the number of nodes in the hidden layer. Since this is a three layer neural net there is only one hidden layer which the first and last layer are connected to.
+
+The activation function for the nodes is the sigmoid which has the function form of:
+
+$$ f = \frac{1}{1 + e^{-z}} $$
+
+where $$z$$ is the output of the previous layer. In addition to forward propogation this neural net includes back-propagation. Back-propagation allows the neural net to update the weights based on error from the output, thereby helping the algorithm find the optimal set of weights that minimizes the error.
+
+Lastly the output of the algorithm is handled by the a softmax function. The softmax function takes the output of the neural net and assigns a probability to each output class. The class with the largest probability is assigned its respective label.
+
+For a three class data set the explicit softmax expression is:
+
+$$ \sigma  = \frac{ e^{z_{j}} }{ e^{z_{1}} +  e^{z_{2}} +  e^{z_{3}} } $$
+
+where $$j$$ is the one of the output classes ($$ j =1, 2, 3 $$ ).
+
+# TLDR
+
+Here is the <a href="https://github.com/kuantumlad/machine_learning/blob/master/classification/iris_nn.ipynb"> link </a> to a three layer neural net I made from scratch in a jupyter notebook to classify the canonical iris data set.

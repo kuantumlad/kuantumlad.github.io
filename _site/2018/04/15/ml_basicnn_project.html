@@ -62,13 +62,70 @@
     </header> <!-- End Header -->
 
     <div class="entry_content">
-      <p>The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented</p>
+      <h1 id="overview">Overview</h1>
 
-<blockquote>
-  <p>Brunch hella poutine authentic farm-to-table. Stumptown craft beer lomo, heirloom single-origin coffee synth PBR&amp;B post-ironic. <cite>- Lorem Ipsum</cite></p>
-</blockquote>
+<p>I wanted to explore the fundamental concepts of a neural net without the use of any open source libraries so I created a three layers neural net using the sigmoid function between the layers and a softmax output at the final layer in a jupyter notebook. I then apply the neural net to the canonical Iris data set provided by the University of California, Irvine.</p>
 
-<p>Banh mi hoodie viral, jianbing 3 wolf moon meditation tbh pok pok everyday carry lumbersexual kombucha iPhone. Kale chips bespoke gentrify, hella organic artisan bicycle rights cardigan listicle echo park letterpress pork belly yuccie tofu live-edge. Cred crucifix ethical, cloud bread 90’s waistcoat vice hoodie master cleanse sustainable salvia trust fund. Ethical activated charcoal live-edge, bushwick paleo PBR&amp;B master cleanse affogato. Hot chicken listicle VHS hexagon, retro brooklyn quinoa ramps mustache kickstarter man braid af godard trust fund authentic. Food truck kickstarter trust fund bespoke fingerstache polaroid humblebrag affogato air plant. Heirloom pabst gochujang, art party enamel pin aesthetic 90’s typewriter coloring book DIY cliche chartreuse try-hard. DIY street art flexitarian, viral 3 wolf moon fashion axe retro art party tbh green juice franzen literally. Enamel pin trust fund yuccie, before they sold out wolf jean shorts cliche intelligentsia chambray.</p>
+<h1 id="three-layer-neural-net">Three Layer Neural Net</h1>
+
+<h2 id="one-hot-encoding">One-Hot Encoding</h2>
+
+<p>In the case of the iris data set we are working with categorical data which is data that does not have numerical labels. The iris species name is an example of this. While some machine learning algorithms can use or are indifferent to categorical labels, some are not (neural nets).
+Thus we require a method to transform the non-numerical labels into integer values for a machine learning algorithm to process. In this post I use <i> one-hot encoding </i> which assigns a binary value to the <script type="math/tex">i^{th}</script> data element. This looks like</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>species 1</th>
+      <th>species 2</th>
+      <th>species 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="creating-the-neural-net">Creating the Neural Net</h2>
+
+<p>Once the one-hot encoding is complete it is time to set the number of nodes in the hidden layer. Since this is a three layer neural net there is only one hidden layer which the first and last layer are connected to.</p>
+
+<p>The activation function for the nodes is the sigmoid which has the function form of:</p>
+
+<script type="math/tex; mode=display">f = \frac{1}{1 + e^{-z}}</script>
+
+<p>where <script type="math/tex">z</script> is the output of the previous layer. In addition to forward propogation this neural net includes back-propagation. Back-propagation allows the neural net to update the weights based on error from the output, thereby helping the algorithm find the optimal set of weights that minimizes the error.</p>
+
+<p>Lastly the output of the algorithm is handled by the a softmax function. The softmax function takes the output of the neural net and assigns a probability to each output class. The class with the largest probability is assigned its respective label.</p>
+
+<p>For a three class data set the explicit softmax expression is:</p>
+
+<script type="math/tex; mode=display">\sigma  = \frac{ e^{z_{j}} }{ e^{z_{1}} +  e^{z_{2}} +  e^{z_{3}} }</script>
+
+<p>where <script type="math/tex">j</script> is the one of the output classes (<script type="math/tex">j =1, 2, 3</script> ).</p>
+
+<h1 id="tldr">TLDR</h1>
+
+<p>Here is the <a href="https://github.com/kuantumlad/machine_learning/blob/master/classification/iris_nn.ipynb"> link </a> to neural net I made from scratch in a jupyter notebook which I then use to process the canonical iris data set.</p>
 
     </div>
     
