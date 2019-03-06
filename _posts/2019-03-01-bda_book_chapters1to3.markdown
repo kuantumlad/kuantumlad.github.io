@@ -19,9 +19,9 @@ An early study concerning the sex of placenta previa births in Germany found tha
 
 The resulting notebook goes over:
 
-* Three posterior distributions given different shape parameters, $\alpha$ and $\beta$ for the Beta distribution. I then compare the distribution mean to that of the population mean.
+* Three posterior distributions given different shape parameters, $$\alpha$$ and $$\beta$$ for the Beta distribution. I then compare the distribution mean to that of the population mean.
 
-* After this I explore a transformation to the parameter space, $\theta$.
+* After this I explore a transformation to the parameter space, $$\theta$$.
 
 * Simulate samples for different parameter transformations and draw the quantiles
 
@@ -41,20 +41,39 @@ Using different shape parameters produces different posterior distributions with
 <div style="text-align: center">
 <figure>
    <img src="/images/bda_chapter2/posterior_c.png" alt="" height="50%" width="50%">
-   <figcaption>Fig. 1 - Increasing the beta distribution shape parameters shifts the prior toward the population mean. The result of this is the posterior distrubution is updated with a mean closer to that of the population. </figcaption>
+   <figcaption>Fig. 2 - Increasing the beta distribution shape parameters shifts the prior toward the population mean. The result of this is the posterior distrubution is updated with a mean closer to that of the population. </figcaption>
  </figure>
  </div>
 
-##### CDF for the $$\beta$# distribution
+##### CDF for the $$\beta$$ distribution
 
 Calculate the cdfs for Beta distributions with different shape parameters, and plot them! This will also tell us the probability that the proportion of female births is less than or equal to 0.485, which turns out to be over 0.98! In other words $$ P( \theta < 0.485 ) \approx 0.98 $$
 
 <div style="text-align: center">
 <figure>
    <img src="/images/bda_chapter2/beta_cdf_c.png" alt="" height="50%" width="50%">
-   <figcaption>Fig. 1 - The CDF for the beta distribution with an informative conjugate prior distribution. The probability that $$\theta <= 0.485 $$ is over 0.95. </figcaption>
+   <figcaption>Fig. 3 - The CDF for the beta distribution with an informative conjugate prior distribution. The probability that theta <= 0.485 is over 0.95. </figcaption>
  </figure>
  </div>
 
 
 ## Chapter 3
+
+There are two notebooks for this chapter: the first one explores how to calculate the marginal distribution for the case of a normal distribution with unknown mean and variance; the second applies what was learned in the first to look at measurements of the speed of light.
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/bda_chapter3/conditional_plot_posterior_sigma.png" alt="" height="60%" width="60%">
+   <figcaption>Fig. 4 - Both the marginal distributions for the parameters in this example, the mean and variance, are plotted. For comparison to the sample, the sample mean is included as an orange dot, closely centered in the joint distribution contour lines. </figcaption>
+ </figure>
+ </div>
+
+
+In the first notebook for Chapter 3 I cover:
+* how to get the marginal distribution of the variance given the data, $$ p( \sigma^{2} \mid y ) $$, and the joint disribution
+
+* compare the results of the analytical calculated vs measured posterior distributions for the mean and variance
+
+* sampling from the joint distribution once the variance and the conditional value of a mean are both determined
+
+* lastly the sampling from a posterior predictive distribution for a future measurement.
