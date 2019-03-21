@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-19T00:52:50-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kuantum Coding</title><subtitle>Write an awesome description for your new site here. You can edit this
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-20T23:11:43-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kuantum Coding</title><subtitle>Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
     Google search results) and in your feed.xml site description.
     permalink: ':title/'
     baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
     url: &quot;&quot; # the base hostname &amp; protocol for your site, e.g. http://example.com
-</subtitle><entry><title type="html">Adding Javascript</title><link href="http://localhost:4000/2019/03/07/vivianis_thrm.html" rel="alternate" type="text/html" title="Adding Javascript " /><published>2019-03-07T15:32:39-05:00</published><updated>2019-03-07T15:32:39-05:00</updated><id>http://localhost:4000/2019/03/07/vivianis_thrm</id><content type="html" xml:base="http://localhost:4000/2019/03/07/vivianis_thrm.html">&lt;p&gt;testing post HELLO !! WORLD !!&lt;/p&gt;</content><author><name></name></author><category term="JavaScript" /><summary type="html">testing post HELLO !! WORLD !!</summary></entry><entry><title type="html">Baysian Data Analysis</title><link href="http://localhost:4000/2019/03/01/bda_book_chapters1to3.html" rel="alternate" type="text/html" title="Baysian Data Analysis" /><published>2019-03-01T04:55:00-05:00</published><updated>2019-03-01T04:55:00-05:00</updated><id>http://localhost:4000/2019/03/01/bda_book_chapters1to3</id><content type="html" xml:base="http://localhost:4000/2019/03/01/bda_book_chapters1to3.html">&lt;p&gt;I decided to explore the concept of Bayesian data analysis using the “Baysian Data Analysis 3rd Edition” by A. Gelman, J. Carlin, and H. Stern. I created, so far, two Jupyter notebooks as I followed the first couple of chapters. I briefly outline what I did in each of the two notebooks and provide links to them. A future post will go over the use of Bayesian techniques for a real world example which will make use of these core concepts from this post.&lt;/p&gt;
+</subtitle><entry><title type="html">Baysian Data Analysis</title><link href="http://localhost:4000/2019/03/01/bda_book_chapters1to3.html" rel="alternate" type="text/html" title="Baysian Data Analysis" /><published>2019-03-01T04:55:00-05:00</published><updated>2019-03-01T04:55:00-05:00</updated><id>http://localhost:4000/2019/03/01/bda_book_chapters1to3</id><content type="html" xml:base="http://localhost:4000/2019/03/01/bda_book_chapters1to3.html">&lt;p&gt;I decided to explore the concept of Bayesian data analysis using the “Baysian Data Analysis 3rd Edition” by A. Gelman, J. Carlin, and H. Stern. I created, so far, two Jupyter notebooks as I followed the first couple of chapters. I briefly outline what I did in each of the two notebooks and provide links to them. A future post will go over the use of Bayesian techniques for a real world example which will make use of these core concepts from this post.&lt;/p&gt;
 
 &lt;h2 id=&quot;chapter-2&quot;&gt;Chapter 2&lt;/h2&gt;
 
@@ -315,6 +315,34 @@ There are three possible ways to process the output of the perceptron: &lt;scrip
 
 &lt;h3 id=&quot;the-hill-climbing-algorithm-hca&quot;&gt;The Hill Climbing Algorithm (HCA)&lt;/h3&gt;
 &lt;p&gt;The Hill Climbing algorithm is an optimization algorithm that iteratively finds the best solution for the set of parameters against the target solution. For example the initial state of the problem is chosen at random and parameters are tweaked randomly until the next best solution is found. This process is iteratively done in order to minimize the loss.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/mona_lisa/MONA_LISA_0000000.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - The functional form of the gaussians used to create the model. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/mona_lisa/MONA_LISA_0060000.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - The functional form of the gaussians used to create the model. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/mona_lisa/MONA_LISA_2140000.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - The functional form of the gaussians used to create the model. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/mona_lisa/MONA_LISA_2990000.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - The functional form of the gaussians used to create the model. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
 
 &lt;h4 id=&quot;hca-with-images&quot;&gt;HCA with Images&lt;/h4&gt;
 

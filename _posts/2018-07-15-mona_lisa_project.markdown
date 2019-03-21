@@ -15,28 +15,28 @@ The Hill Climbing algorithm is an optimization algorithm that iteratively finds 
 <div style="text-align: center">
 <figure>
    <img src="/images/mona_lisa/MONA_LISA_0000000.png" alt="" height="50%" width="50%">
-   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+   <figcaption>Fig. 1 - Mona Lisa split into 16 pieces. Iteration 0 has the colors of the triangles set to the average color in that segment </figcaption>
  </figure>
  </div>
 
 <div style="text-align: center">
 <figure>
    <img src="/images/mona_lisa/MONA_LISA_0060000.png" alt="" height="50%" width="50%">
-   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+   <figcaption>Fig. 2 - Iteration 60000 </figcaption>
  </figure>
  </div>
 
 <div style="text-align: center">
 <figure>
    <img src="/images/mona_lisa/MONA_LISA_2140000.png" alt="" height="50%" width="50%">
-   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+   <figcaption>Fig. 3 - Iteration 2140000 </figcaption>
  </figure>
  </div>
 
 <div style="text-align: center">
 <figure>
    <img src="/images/mona_lisa/MONA_LISA_2990000.png" alt="" height="50%" width="50%">
-   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+   <figcaption>Fig. 4 - Iteration 2990000 </figcaption>
  </figure>
  </div>
 

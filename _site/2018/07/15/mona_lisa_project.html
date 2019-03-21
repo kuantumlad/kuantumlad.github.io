@@ -67,6 +67,34 @@
 <h3 id="the-hill-climbing-algorithm-hca">The Hill Climbing Algorithm (HCA)</h3>
 <p>The Hill Climbing algorithm is an optimization algorithm that iteratively finds the best solution for the set of parameters against the target solution. For example the initial state of the problem is chosen at random and parameters are tweaked randomly until the next best solution is found. This process is iteratively done in order to minimize the loss.</p>
 
+<div style="text-align: center">
+<figure>
+   <img src="/images/mona_lisa/MONA_LISA_0000000.png" alt="" height="50%" width="50%" />
+   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+ </figure>
+ </div>
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/mona_lisa/MONA_LISA_0060000.png" alt="" height="50%" width="50%" />
+   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+ </figure>
+ </div>
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/mona_lisa/MONA_LISA_2140000.png" alt="" height="50%" width="50%" />
+   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+ </figure>
+ </div>
+
+<div style="text-align: center">
+<figure>
+   <img src="/images/mona_lisa/MONA_LISA_2990000.png" alt="" height="50%" width="50%" />
+   <figcaption>Fig. 1 - The functional form of the gaussians used to create the model. </figcaption>
+ </figure>
+ </div>
+
 <h4 id="hca-with-images">HCA with Images</h4>
 
 <p>Each triangle has three vertices which can be assigned a position in the xy-plane and an RBG color. If there are N triangles which can have either their vertices moved or color values changes then the number of degrees of freedom for this problem is <script type="math/tex">N*(3 * 2)*(3 * 3)</script> . In other words it’s the product of the number of triangles and the number of directions that each of the three vertices can be moved and the number of color values that can be changed for each. The loss function takes into account these degrees of freedom by calculating the <script type="math/tex">\chi^{2}</script> for each iteration.</p>
@@ -139,10 +167,6 @@
       <div class="recent_list">
         
           
-            <a href="/2019/03/07/vivianis_thrm.html" class="recent_item" style="background-image: url( /assets/img/bda_into.jpg )"><span>Adding Javascript </span></a>
-          
-        
-          
             <a href="/2019/03/01/bda_book_chapters1to3.html" class="recent_item" style="background-image: url( /assets/img/bda_into.jpg )"><span>Baysian Data Analysis</span></a>
           
         
@@ -160,6 +184,10 @@
         
           
             <a href="/2018/09/15/kaggle_salt_project.html" class="recent_item" style="background-image: url( /assets/img/Salt.jpg )"><span>Finding the Salt in the Rough</span></a>
+          
+        
+          
+            <a href="/2018/07/15/mona_lisa_project.html" class="recent_item" style="background-image: url( /assets/img/Mona_Lisa.jpg )"><span>Generate Da Vinci's Mona Lisa with Polygons?</span></a>
           
         
       </div>
