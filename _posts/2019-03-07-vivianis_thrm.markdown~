@@ -1,0 +1,14 @@
+---
+layout: viv_thrm
+title:  "Adding Javascript "
+date:   2019-03-07 16:32:39 -0400
+img: bda_into.jpg # Add image post (optional)
+description: Interactive math example
+tag: [JavaScript]
+---
+
+testing post HELLO !! WORLD !!
+
+
+<script src="{{"/assets/js/viv_thrm.js" | prepend: site.baseurl}}"></script>
+	    

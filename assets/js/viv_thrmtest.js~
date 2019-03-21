@@ -1,0 +1,32 @@
+var system;
+
+var Lines = function(point1, length){
+
+    this.point2 = createVector(0,0);
+    this.point2.x = length*sin(45);
+    this.point2.y = length*cos(45);
+
+    this.point3 = createVector(0,0);
+    point3.x = this.point2.x + length*sin(180);
+    point3.y = this.point2.y + length*cos(180);
+      
+    this.l1 = line( point1.x, point1.y, point2.x, point2.y );
+    this.l2 = line( point2.x, point2.y, point3.x, point3.y );
+    this.l3 = line( point3.x, point3.y, point1.x, point1.y );
+       
+    
+}
+
+
+function setup(){
+    var canvas = createCanvas(600,600);
+    canvas.parent('mysketch');
+    equilater_tri = new Lines(50,10);
+    
+
+}
+
+function draw(){
+    background(0);
+    
+}

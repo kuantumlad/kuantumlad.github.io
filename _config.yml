@@ -49,8 +49,18 @@ jekyll-mentions:
 # Build settings
 markdown: kramdown
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
+ - jekyll-mentions
+ - jekyll-sitemap
+ - jekyll-feed
+ - jekyll-gist
+ - jekyll-paginate
+ - jekyll-assets
+
+
+assets:
+  compress:
+      css:  sass
+      js:   uglifier
 
 #include: [_pages]
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

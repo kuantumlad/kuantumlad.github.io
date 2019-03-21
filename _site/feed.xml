@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-19T00:52:50-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kuantum Coding</title><subtitle>Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+    Google search results) and in your feed.xml site description.
+    permalink: ':title/'
+    baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+    url: &quot;&quot; # the base hostname &amp; protocol for your site, e.g. http://example.com
+</subtitle><entry><title type="html">Adding Javascript</title><link href="http://localhost:4000/2019/03/07/vivianis_thrm.html" rel="alternate" type="text/html" title="Adding Javascript " /><published>2019-03-07T15:32:39-05:00</published><updated>2019-03-07T15:32:39-05:00</updated><id>http://localhost:4000/2019/03/07/vivianis_thrm</id><content type="html" xml:base="http://localhost:4000/2019/03/07/vivianis_thrm.html">&lt;p&gt;testing post HELLO !! WORLD !!&lt;/p&gt;</content><author><name></name></author><category term="JavaScript" /><summary type="html">testing post HELLO !! WORLD !!</summary></entry><entry><title type="html">Baysian Data Analysis</title><link href="http://localhost:4000/2019/03/01/bda_book_chapters1to3.html" rel="alternate" type="text/html" title="Baysian Data Analysis" /><published>2019-03-01T04:55:00-05:00</published><updated>2019-03-01T04:55:00-05:00</updated><id>http://localhost:4000/2019/03/01/bda_book_chapters1to3</id><content type="html" xml:base="http://localhost:4000/2019/03/01/bda_book_chapters1to3.html">&lt;p&gt;I decided to explore the concept of Bayesian data analysis using the “Baysian Data Analysis 3rd Edition” by A. Gelman, J. Carlin, and H. Stern. I created, so far, two Jupyter notebooks as I followed the first couple of chapters. I briefly outline what I did in each of the two notebooks and provide links to them. A future post will go over the use of Bayesian techniques for a real world example which will make use of these core concepts from this post.&lt;/p&gt;
+
+&lt;h2 id=&quot;chapter-2&quot;&gt;Chapter 2&lt;/h2&gt;
+
+&lt;p&gt;In this chapter I created a notebook for the example in Chapter 2, section 4 about the probability of a girl birth given placenta previa.&lt;/p&gt;
+
+&lt;h4 id=&quot;problem&quot;&gt;Problem:&lt;/h4&gt;
+&lt;p&gt;An early study concerning the sex of placenta previa births in Germany found that of a total of 980 births, 437 were female. How much evidence does this provide for the claim that the proportion of female births in the population of placenta previa births is less than 0.485, the proportion of female births in the general population?&lt;/p&gt;
+
+&lt;p&gt;The resulting notebook goes over:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Three posterior distributions given different shape parameters, &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt; for the Beta distribution. I then compare the distribution mean to that of the population mean.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After this I explore a transformation to the parameter space, &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Simulate samples for different parameter transformations and draw the quantiles&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Calculate the probabilty that the proportion of female births is less than 0.485.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;choice-of-prior&quot;&gt;Choice of Prior&lt;/h5&gt;
+
+&lt;p&gt;Using different shape parameters produces different posterior distributions with different mean values. Below are the results.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/bda_chapter2/posterior_a.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - Using a uniform prior ( $$ \alpha = 0 , \beta = 0 $$ ) results in posterior distribution being left unchanged and centered around the sample mean of the data. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/bda_chapter2/posterior_c.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 2 - Increasing the beta distribution shape parameters shifts the prior toward the population mean. The result of this is the posterior distrubution is updated with a mean closer to that of the population. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;h5 id=&quot;cdf-for-the-beta-distribution&quot;&gt;CDF for the &lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt; distribution&lt;/h5&gt;
+
+&lt;p&gt;Calculate the cdfs for Beta distributions with different shape parameters, and plot them! This will also tell us the probability that the proportion of female births is less than or equal to 0.485, which turns out to be over 0.98! In other words &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+P( \theta &lt; 0.485 ) \approx 0.98 %]]&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/bda_chapter2/beta_cdf_c.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 3 - The CDF for the beta distribution with an informative conjugate prior distribution. The probability that theta &amp;lt;= 0.485 is over 0.95. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;h2 id=&quot;chapter-3&quot;&gt;Chapter 3&lt;/h2&gt;
+
+&lt;p&gt;There are two notebooks for this chapter: the first one explores how to calculate the marginal distribution for the case of a normal distribution with unknown mean and variance; the second applies what was learned in the first to look at measurements of the speed of light.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/bda_chapter3/conditional_plot_posterior_sigma.png&quot; alt=&quot;&quot; height=&quot;60%&quot; width=&quot;60%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 4 - Both the marginal distributions for the parameters in this example, the mean and variance, are plotted. For comparison to the sample, the sample mean is included as an orange dot, closely centered in the joint distribution contour lines. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;p&gt;In the first notebook for Chapter 3 I cover:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;how to get the marginal distribution of the variance given the data, &lt;script type=&quot;math/tex&quot;&gt;p( \sigma^{2} \mid y )&lt;/script&gt;, and the joint disribution&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;compare the results of the analytical calculated vs measured posterior distributions for the mean and variance&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sampling from the joint distribution once the variance and the conditional value of a mean are both determined&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;lastly the sampling from a posterior predictive distribution for a future measurement.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="BDA" /><category term="Bayesian Data Analysis 3rd Edition" /><category term="Bayesian Data Analysis" /><summary type="html">I decided to explore the concept of Bayesian data analysis using the “Baysian Data Analysis 3rd Edition” by A. Gelman, J. Carlin, and H. Stern. I created, so far, two Jupyter notebooks as I followed the first couple of chapters. I briefly outline what I did in each of the two notebooks and provide links to them. A future post will go over the use of Bayesian techniques for a real world example which will make use of these core concepts from this post.</summary></entry><entry><title type="html">FFT Music Visualizer with SFML</title><link href="http://localhost:4000/2019/01/15/fft_music_project.html" rel="alternate" type="text/html" title="FFT Music Visualizer with SFML" /><published>2019-01-15T04:55:00-05:00</published><updated>2019-01-15T04:55:00-05:00</updated><id>http://localhost:4000/2019/01/15/fft_music_project</id><content type="html" xml:base="http://localhost:4000/2019/01/15/fft_music_project.html">&lt;p&gt;As a kid growing up we had a Dell computer with Windows Media Player on it which had a music visualizer setting you could watch as your favorite song played. My goal here was to create my own audio visualizer that I could use to not only listen to the songs I love but also see them. In order to achieve this I first made use of the discrete Fourier transform (DFT), then later adopted the Fast Fourier Transform algorithm developed by Cooley-Tukey to visualize the frequency spectrum as the song plays.&lt;/p&gt;
+
+&lt;h3 id=&quot;music-sample&quot;&gt;Music Sample&lt;/h3&gt;
+
+&lt;p&gt;A typical song that one might hear on the radio is comprised of an array of sampled bits. When played the sample bits are sampled at the sampling rate of the song, which when played over the speakers is what we hear. Below is an example of what we might see of a song represented by its sampling bits.&lt;/p&gt;
+
+&lt;p&gt;insert  DFT of the song here from mathematica&lt;/p&gt;
+
+&lt;p&gt;In order to deconstruct the signal into its principal frequency components a Discrete Fourier Transform, or more preferably a Fast Fourier Transform (FFT), is preformed on the signal. First we will preform a Fourier transform of the entire song to see a static representation of the signals Fourier components, then second I perform a FFT as the song plays in order to visualize these components over time.&lt;/p&gt;
+
+&lt;h3 id=&quot;quick-review-of-the-fourier-transform&quot;&gt;Quick review of the Fourier Transform&lt;/h3&gt;
+
+&lt;p&gt;The discrete fourier transform is represented below as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F(j\omega) =  \sum^{N-1}_{k=0} f[k]e^{-j\omega kT}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;f[k]&lt;/script&gt; is the value of the &lt;script type=&quot;math/tex&quot;&gt;k^{th}&lt;/script&gt; input signal, which in this case was normalized to the maximum signal value, and &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; is the number of samples in the signal. We can also express &lt;script type=&quot;math/tex&quot;&gt;\omega&lt;/script&gt;, the harmonics of the signal, as &lt;script type=&quot;math/tex&quot;&gt;\omega_{n} = \frac{2\pi n}{NT}&lt;/script&gt;. Therefore when we go to evaluate the discrete Fourier transform of the signal we are in a sense calculating the product of a matrix, whose elements are &lt;script type=&quot;math/tex&quot;&gt;W_{nk}&lt;/script&gt; are given by &lt;script type=&quot;math/tex&quot;&gt;e^{-j\omega kT}&lt;/script&gt;, with a vector or the input signal &lt;script type=&quot;math/tex&quot;&gt;f[k]&lt;/script&gt;. One issue with using this method to calculate the Fourier transform of a signal is that this operation is &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(N^{2})&lt;/script&gt; making this a computational expensive procedure. An alternative to this which reduces the computation time to &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(N logN)&lt;/script&gt; is the Cooley-Tukey FFT algorithm which can be read about &lt;a href=&quot;https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;applying-the-fft-to-music&quot;&gt;Applying the FFT to Music&lt;/h3&gt;
+&lt;p&gt;To visualize the frequency histogram change the FFT was applied to a sample window of 4096, which is approximately &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{20}&lt;/script&gt; of a second. This is known as short time Fourier transform. Once the FFT is complete the magnitude of the FFT coefficients are binned into a histogram and displayed as the sample window scans across the sample array. Filling the histogram requires knowing the appropriate frequency bin to change, calculating this requires scaling the frequency factor by the ratio of the sampling rate, the number of samples played in a seconds, to the short window size. The corresponding bin is then update. Once the FFT of the window is complete it is moved over and the process is repeated.&lt;/p&gt;
+
+&lt;p&gt;Histogram bins are colored based on their frequency. Below is a table mapping the frequency ranges to their respective bin colors.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Frequency Range [Hz]&lt;/th&gt;
+      &lt;th&gt;Bin Color&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0 - 32&lt;/td&gt;
+      &lt;td&gt;white&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;32 - 512&lt;/td&gt;
+      &lt;td&gt;blue&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;512 - 2048&lt;/td&gt;
+      &lt;td&gt;green&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2048 - 8192&lt;/td&gt;
+      &lt;td&gt;magenta&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8192 - 16384&lt;/td&gt;
+      &lt;td&gt;yellow&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Provide link to youtube video of song playing&lt;/p&gt;</content><author><name></name></author><category term="FFT" /><category term="DFT" /><category term="Music" /><category term="Math" /><category term="Visualize" /><category term="Fourier" /><category term="Signal Processing" /><summary type="html">As a kid growing up we had a Dell computer with Windows Media Player on it which had a music visualizer setting you could watch as your favorite song played. My goal here was to create my own audio visualizer that I could use to not only listen to the songs I love but also see them. In order to achieve this I first made use of the discrete Fourier transform (DFT), then later adopted the Fast Fourier Transform algorithm developed by Cooley-Tukey to visualize the frequency spectrum as the song plays.</summary></entry><entry><title type="html">Parameter Optimization with Grid Search Algorithm</title><link href="http://localhost:4000/2018/11/15/ml_gridsearch_project.html" rel="alternate" type="text/html" title="Parameter Optimization with Grid Search Algorithm" /><published>2018-11-15T04:55:00-05:00</published><updated>2018-11-15T04:55:00-05:00</updated><id>http://localhost:4000/2018/11/15/ml_gridsearch_project</id><content type="html" xml:base="http://localhost:4000/2018/11/15/ml_gridsearch_project.html">&lt;p&gt;
+During my PhD at Jefferson Lab there was one project I was involved with was the alignment of the drift chambers, a detector built to aid in the reconstruction of charged particles so as to measure their momentum. While other methods were employed, I explored the use of how a grid search algorithm could potentially be used by starting with a simple example, which I illustrate below.
+&lt;/p&gt;
+
+&lt;h1 id=&quot;search-algorithm-overview&quot;&gt;Search Algorithm Overview&lt;/h1&gt;
+
+&lt;p&gt;The goal of a grid search algorithm is to find the maximum of a known function, &lt;script type=&quot;math/tex&quot;&gt;f(\vec{\theta} )&lt;/script&gt;, where the parameters of the model are given by &lt;script type=&quot;math/tex&quot;&gt;\vec{\theta} = (\theta_{1}, \theta_{2}, ... )&lt;/script&gt;. One of the primary differences of this algorithms from others is that this is a gradient descent-less technique for finding the maximum of a model. All together there are three approches for a search algorithm. The first is a manual search of the parameters of the model guided by intuition or luck. In some cases this can work if there is some knowledge about where the parameters should be, but typically this method can become time consumming as the number of free parameters increases. Second is a grid search where the parameter space is exhaustingly searched. While an improvement over the first method this one can become increasingly time consuming as the number of parameters in the model grows, and it can miss the best parameters. Lastly, there is a random grid search which randomly picks a finite subset of the available parameters. The advantage to the random grid search is that is ideal for a large parameter model and can approximate the maximizing parameters in less time than a grid search.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-toy-model&quot;&gt;The Toy Model&lt;/h2&gt;
+
+&lt;p&gt;For this example the toy model has a 3D parameter space (&lt;script type=&quot;math/tex&quot;&gt;i=1,2,3&lt;/script&gt; ) with the model defines as below:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f( \mu_{i}, \sigma_{i}, x_{i} ) = e^{- \frac{(\mu_{i} - x_{i})^{2} }{2\sigma^{2}_{i}} }&lt;/script&gt;
+
+&lt;p&gt;
+The true model results is defined as such:
+&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F( f_{1}, f_{2}, f_{3} )_{true} = f_{1} \times f_{2} \times f_{3}&lt;/script&gt;
+
+&lt;p&gt;where the maximum value of the model is defined to be equal to one and has independent variables ranges given as &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+x_{i,min} &lt; x_{i} &lt; x_{i,max} %]]&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;The goal is to find the value of each of the independent variables &lt;script type=&quot;math/tex&quot;&gt;x_{i}&lt;/script&gt; that maximizes the model. Benchmarking of the results is done using a &lt;script type=&quot;math/tex&quot;&gt;\chi^{2} = ( F_{pred} - F_{true} )^{2}&lt;/script&gt; for each grid point, which are then compared to the true parameter values.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/grid_search/models.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - The functional form of the gaussians used to create the model. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;h2 id=&quot;grid-search&quot;&gt;Grid Search&lt;/h2&gt;
+
+&lt;p&gt;For the grid search we divide the independent variables over a range, &lt;script type=&quot;math/tex&quot;&gt;x_{min}&lt;/script&gt; to &lt;script type=&quot;math/tex&quot;&gt;x_{max}&lt;/script&gt;, with a minimum spacing &lt;script type=&quot;math/tex&quot;&gt;s_{i}&lt;/script&gt; which may be determined by the resolution of the measurements. The number of grid points in each dimension is thus:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;N_{i} = \frac{ x_{i,max} - x_{i,min} }{s_i}.&lt;/script&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/grid_search/grid_gridded.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 2 - Breaking the parameter space down into a searchable grid. Each blue point represents a 3D parameter vector that is used to determine its corresponding chi2 value. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In this example the number of grid points for 3 independent variables is &lt;script type=&quot;math/tex&quot;&gt;12 \times 20 \times 10&lt;/script&gt; which is equal to 2400 points. The final result of the grid search yields (5,3,8) for the coordinates that maximized the model function.&lt;/p&gt;
+
+&lt;h2 id=&quot;random-search&quot;&gt;Random Search&lt;/h2&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/grid_search/grid_random.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 3 - Breaking the parameter space down into a searchable grid. Each blue point represents a 3D parameter vector that is used to determine its corresponding chi2 value. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;p&gt;Instead of drawing from discrete locations within the 3D grid for the model parameters, they are drawn by generating a random number within the range of the independent variable. The number of iterations for this process is defined by the user, and is in general less than the number of grid search points. This method yields the final independent coorindates of (5.24, 3.00, 7.95)! Not too bad with less than half the iterations of that from the grid search!&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/grid_search/graph_random_ch2.png &quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 4 - All chi2 values for each of the 1000 iterations from the random search method. The iteration with the smallest chi2 value is chosen as the best answer. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;/h1&gt;
+
+&lt;p&gt;Search Algorithms:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Manual search - Possible, only if expert has realistic idea of parameters&lt;/li&gt;
+  &lt;li&gt;Grid search - A no no if there are too many parameters or needs fine binning&lt;/li&gt;
+  &lt;li&gt;Random search - Preferred method when there are a large number of independent variables that need to be varied.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="Parameter Optimization" /><category term="Chi2 Minimization" /><category term="Grid Search" /><category term="Algorithm" /><category term="Math" /><summary type="html">During my PhD at Jefferson Lab there was one project I was involved with was the alignment of the drift chambers, a detector built to aid in the reconstruction of charged particles so as to measure their momentum. While other methods were employed, I explored the use of how a grid search algorithm could potentially be used by starting with a simple example, which I illustrate below.</summary></entry><entry><title type="html">Visualize Ulam’s Spiral</title><link href="http://localhost:4000/2018/10/30/ulam_spiral_project.html" rel="alternate" type="text/html" title="Visualize Ulam's Spiral" /><published>2018-10-30T05:55:00-04:00</published><updated>2018-10-30T05:55:00-04:00</updated><id>http://localhost:4000/2018/10/30/ulam_spiral_project</id><content type="html" xml:base="http://localhost:4000/2018/10/30/ulam_spiral_project.html">&lt;h1 id=&quot;ulams-spiral&quot;&gt;Ulam’s Spiral&lt;/h1&gt;
+&lt;p&gt;Ulam's Spiral is a fun way to visualize the set of positive real numbers with an emphasis on the set of prime numbers. The spiral was originally thought up by the mathematician Stanislaw Ulam in 1963 while apparently doodling on a napkin at a very boring mathematics lecture
+.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/ulam_spiral/ulam_spiral_text.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 1 - Numerical representation of Ulam's spiral starting
+   from 1 and ending at 49. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;h2 id=&quot;creating-the-spiral&quot;&gt;Creating the Spiral&lt;/h2&gt;
+
+&lt;p&gt;The spiral is created by creating a square spiral in the counter clockwise direction by starting with the number 1 at the center. The numbers are represented by dots in the image, with white representing a nonprime number while the circle is colored red for a prime number.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;visualizing-the-spiral&quot;&gt;Visualizing the Spiral&lt;/h2&gt;
+
+&lt;p&gt;Below is an image created using Ulam's Spiral technique with 22500 numbers arranged in a square lattice. What is interesting is the formation of lines comprised of prime numbers throughout the image! Ulam notes that this is not unexpected because within those regions of high prime density a prime generating polynomial is thought to be resonsible for this.
+&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;/images/ulam_spiral/ulam_spiral.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt;Fig. 2 - Pictorial representation of Ulam's spiral for the first 22500 numbers starting from 1. &lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;/div&gt;
+
+&lt;h2 id=&quot;coding&quot;&gt;Coding&lt;/h2&gt;
+
+&lt;p&gt;Rather than use a C++ &lt;code&gt; std::vector &lt;/code&gt; container this time a dynamic array containing pointers to n instances of &lt;code&gt; sf::CircleShape &lt;/code&gt; was used for the project. The properties of the CircleShape class are altered depending on whether the number associated with the instance was prime or not.
+&lt;/p&gt;
+&lt;p&gt;Below is example code illustrating a dynamically allocated array of size N for type &lt;code&gt; sf::CircleShape* &lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+sf::CircleShape **ulam_grid_circles = new sf::CircleShape*[N];
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;
+Remember to delete the object in memory to avoid memory allocation issues using &lt;code&gt; delete[] &lt;/code&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="Ulam's Spiral" /><category term="Prime Numbers" /><category term="Math" /><summary type="html">Ulam’s Spiral Ulam's Spiral is a fun way to visualize the set of positive real numbers with an emphasis on the set of prime numbers. The spiral was originally thought up by the mathematician Stanislaw Ulam in 1963 while apparently doodling on a napkin at a very boring mathematics lecture .</summary></entry><entry><title type="html">Finding the Salt in the Rough</title><link href="http://localhost:4000/2018/09/15/kaggle_salt_project.html" rel="alternate" type="text/html" title="Finding the Salt in the Rough" /><published>2018-09-15T05:55:00-04:00</published><updated>2018-09-15T05:55:00-04:00</updated><id>http://localhost:4000/2018/09/15/kaggle_salt_project</id><content type="html" xml:base="http://localhost:4000/2018/09/15/kaggle_salt_project.html">&lt;p&gt;I participated in the TGS Salt Identification Challenge hosted on Kaggle. After having created the Mona Lisa using polygons this was an obvisou transition into the space of machine learning with images.&lt;/p&gt;
+
+&lt;p&gt;TGS poised the problem of creating an algorithm that can identify salt deposits in a seismic image. Since this problem fell into the category of image segmentation a U-net was trained using the supplied training images which consisted of the sesmic images and their masks which marked the salt deposits.&lt;/p&gt;
+
+&lt;p&gt;Below is a link to the Jupyter notebook that I created outlining the project goal, building the U-Net, and finally the analysis of the results before submission.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/kuantumlad/kaggle-tgs_salt/blob/master/old_files/kaggle-tgs_salt_v2.ipynb&quot;&gt; Kaggle TGS Salt Identification Challenge&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Kaggle" /><category term="Convolutional Neural Net" /><category term="Deep Neural Net" /><category term="Image Segmentation" /><category term="Salt" /><summary type="html">I participated in the TGS Salt Identification Challenge hosted on Kaggle. After having created the Mona Lisa using polygons this was an obvisou transition into the space of machine learning with images.</summary></entry><entry><title type="html">Linear Regression</title><link href="http://localhost:4000/2018/07/15/ml_linreg_project.html" rel="alternate" type="text/html" title="Linear Regression" /><published>2018-07-15T05:55:00-04:00</published><updated>2018-07-15T05:55:00-04:00</updated><id>http://localhost:4000/2018/07/15/ml_linreg_project</id><content type="html" xml:base="http://localhost:4000/2018/07/15/ml_linreg_project.html">&lt;p&gt;In this project I worked with a simple learning algorithm known as the perceptron learning algorithm (PLA). This supervised machine learning algorithm was first invented by 1957 by Frank Rosenblatt when it was originally was designed to work as a machine rather than a program.
+In its modern form it is an algorithm that falls under the umbrella of supervised linear binary classifier and is primarily used to classify linearly separable data, or data that does not overlap.&lt;/p&gt;
+
+&lt;p&gt;Below I created a working example of classifying data from two guassian distributions with different means and sigmas using the PLA.&lt;/p&gt;
+
+&lt;p&gt;In order to do this I:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;created training data&lt;/li&gt;
+  &lt;li&gt;updated the weights of the perceptron&lt;/li&gt;
+  &lt;li&gt;classified testing data with the model (the perceptron)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data&quot;&gt;Data&lt;/h2&gt;
+
+&lt;p&gt;Firstly for this example it is important that the data is linearly seperable, meaning that the data from two classes does not overlap. This can be tested using the convex-hull alogorithm which will be covered in another post. It is important that this criteria is met so that there is a choice of weights in the perceptron that classifies all the training examples correctly. Below is the labeled testing data for a planet’s mass vs radius of which there are two classes (not sure if this is true in real life, but the data needs a story!).&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+   &lt;figure&gt;
+   &lt;img src=&quot;/images/perceptron/training_data.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt; Fig. 1 - Training data for the perceptron where the different colors represent the two classes that the model must separate. &lt;/figcaption&gt;
+   &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;the-perceptron&quot;&gt;The Perceptron&lt;/h2&gt;
+
+&lt;p&gt;The perceptron used in this example is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;h = w_{0} + w_{1}x + w_{2}*y&lt;/script&gt;
+
+&lt;p&gt;where the &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt;s are the weights which are updated for each iteration, &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; is the &lt;script type=&quot;math/tex&quot;&gt;i^{th}&lt;/script&gt; planets radius and &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; is its corresponding mass. For each entry the perceptron produces a hypothesis &lt;script type=&quot;math/tex&quot;&gt;h&lt;/script&gt; value. Now if this problem was strictly linear classification there would be a hard cut on the output.
+There are three possible ways to process the output of the perceptron: &lt;script type=&quot;math/tex&quot;&gt;h&lt;/script&gt; is mapped to produce a &lt;script type=&quot;math/tex&quot;&gt;\pm 1&lt;/script&gt; for binary decisions (linear classification), leave the output unmapped (linear regression), and lastly map the output to a probability from [0,1] using a sigmoid function (logistic regression). For each method after every iteration the weights are updated appropriately for when the classifier successfully predicts a class or fails to. In the case of logistic regression a measure of how well the perceptron model is updating is by looking at the cost function, and continue to update the weights until there is no further improvement.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-result&quot;&gt;The Result&lt;/h2&gt;
+
+&lt;p&gt;Below are the results of the output of the PLA on training and testing data using the logistic regression model.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;
+   &lt;figure&gt;
+   &lt;img src=&quot;/images/perceptron/testing_data.png&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
+   &lt;figcaption&gt; Fig. 2 - The model applied to the testing data. Since the data is clearly linearly seperable the model successfully classifies all the data. &lt;/figcaption&gt;
+   &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;tldr&quot;&gt;TLDR&lt;/h2&gt;
+
+&lt;p&gt;In short the training examples are processed through a learning algorithm, the perceptron, and the output can be treated in three different ways, which for binary classification include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;linear classification (hard cuts)&lt;/li&gt;
+  &lt;li&gt;linear regression (predict the output)&lt;/li&gt;
+  &lt;li&gt;logistic regression (assign output to a probability)&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="Linear Regression" /><category term="Binary Classification" /><category term="Linear Data" /><category term="C++" /><category term="ROOT" /><category term="Math" /><summary type="html">In this project I worked with a simple learning algorithm known as the perceptron learning algorithm (PLA). This supervised machine learning algorithm was first invented by 1957 by Frank Rosenblatt when it was originally was designed to work as a machine rather than a program. In its modern form it is an algorithm that falls under the umbrella of supervised linear binary classifier and is primarily used to classify linearly separable data, or data that does not overlap.</summary></entry><entry><title type="html">Generate Da Vinci’s Mona Lisa with Polygons?</title><link href="http://localhost:4000/2018/07/15/mona_lisa_project.html" rel="alternate" type="text/html" title="Generate Da Vinci's Mona Lisa with Polygons?" /><published>2018-07-15T05:55:00-04:00</published><updated>2018-07-15T05:55:00-04:00</updated><id>http://localhost:4000/2018/07/15/mona_lisa_project</id><content type="html" xml:base="http://localhost:4000/2018/07/15/mona_lisa_project.html">&lt;p&gt;The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented in this project to take a set of 3 sided polygons, triangles, and adjust the color and vertices of each corner of the triangle until the target image is formed by the set of polygons. In this case the image is the famous Mona Lisa by Leonardo da Vinci.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-hill-climbing-algorithm-hca&quot;&gt;The Hill Climbing Algorithm (HCA)&lt;/h3&gt;
+&lt;p&gt;The Hill Climbing algorithm is an optimization algorithm that iteratively finds the best solution for the set of parameters against the target solution. For example the initial state of the problem is chosen at random and parameters are tweaked randomly until the next best solution is found. This process is iteratively done in order to minimize the loss.&lt;/p&gt;
+
+&lt;h4 id=&quot;hca-with-images&quot;&gt;HCA with Images&lt;/h4&gt;
+
+&lt;p&gt;Each triangle has three vertices which can be assigned a position in the xy-plane and an RBG color. If there are N triangles which can have either their vertices moved or color values changes then the number of degrees of freedom for this problem is &lt;script type=&quot;math/tex&quot;&gt;N*(3 * 2)*(3 * 3)&lt;/script&gt; . In other words it’s the product of the number of triangles and the number of directions that each of the three vertices can be moved and the number of color values that can be changed for each. The loss function takes into account these degrees of freedom by calculating the &lt;script type=&quot;math/tex&quot;&gt;\chi^{2}&lt;/script&gt; for each iteration.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\chi^{2} = \sum_{pixel=1}^{N_{pixels}} (\overrightarrow{X}_{target} - \overrightarrow{X}_{pixel}) + (\overrightarrow{C}_{target} - \overrightarrow{C}_{pixel})&lt;/script&gt;
+
+&lt;p&gt;If the &lt;script type=&quot;math/tex&quot;&gt;\chi^{2}&lt;/script&gt; of the current iteration is better then the previous one then that configuration of triangles is kept. Because of this process the created image will not exactly match that of the target but it will get relatively close.&lt;/p&gt;
+
+&lt;h3 id=&quot;implementation-of-hca&quot;&gt;Implementation of HCA&lt;/h3&gt;
+
+&lt;p&gt;There are two ways to implement this algorithm: (1) iterate toward the best solution that can fit the entire image, (2) split the image into a grid and fit more triangles within the grid. After successfully implementing the first method I split the image into a grid to achieve a better composite image of Mona Lisa.&lt;/p&gt;</content><author><name></name></author><category term="Mona Lisa" /><category term="Hill Climbing" /><category term="Genetic Algorithm" /><summary type="html">The principal goal of this project is to find a way to efficiently compress a source image from a finite number of n-sided polygons by adjusting the color and coordinate space using the hill climbing algorithm (commonly called the genetic algorithm). The hill climbing algorithm is implemented in this project to take a set of 3 sided polygons, triangles, and adjust the color and vertices of each corner of the triangle until the target image is formed by the set of polygons. In this case the image is the famous Mona Lisa by Leonardo da Vinci.</summary></entry><entry><title type="html">Applying a Simple Neural Net to the Iris Data Set</title><link href="http://localhost:4000/2018/04/15/ml_basicnn_project.html" rel="alternate" type="text/html" title="Applying a Simple Neural Net to the Iris Data Set" /><published>2018-04-15T05:55:00-04:00</published><updated>2018-04-15T05:55:00-04:00</updated><id>http://localhost:4000/2018/04/15/ml_basicnn_project</id><content type="html" xml:base="http://localhost:4000/2018/04/15/ml_basicnn_project.html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+
+&lt;p&gt;I wanted to explore the fundamental concepts of a neural net without the use of any open source libraries so I created a three layers neural net using the sigmoid function between the layers and a softmax output at the final layer in a jupyter notebook. I then apply the neural net to the canonical Iris data set provided by the University of California, Irvine.&lt;/p&gt;
+
+&lt;h1 id=&quot;three-layer-neural-net&quot;&gt;Three Layer Neural Net&lt;/h1&gt;
+
+&lt;h2 id=&quot;one-hot-encoding&quot;&gt;One-Hot Encoding&lt;/h2&gt;
+
+&lt;p&gt;In the case of the iris data set we are working with categorical data which is data that does not have numerical labels. The iris species name is an example of this. While some machine learning algorithms can use or are indifferent to categorical labels, some are not (neural nets).
+Thus we require a method to transform the non-numerical labels into integer values for a machine learning algorithm to process. In this post I use &lt;i&gt; one-hot encoding &lt;/i&gt; which assigns a binary value to the &lt;script type=&quot;math/tex&quot;&gt;i^{th}&lt;/script&gt; data element. This looks like&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;species 1&lt;/th&gt;
+      &lt;th&gt;species 2&lt;/th&gt;
+      &lt;th&gt;species 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;.&lt;/td&gt;
+      &lt;td&gt;.&lt;/td&gt;
+      &lt;td&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;creating-the-neural-net&quot;&gt;Creating the Neural Net&lt;/h2&gt;
+
+&lt;p&gt;Once the one-hot encoding is complete it is time to set the number of nodes in the hidden layer. Since this is a three layer neural net there is only one hidden layer which the first and last layer are connected to.&lt;/p&gt;
+
+&lt;p&gt;The activation function for the nodes is the sigmoid which has the function form of:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f = \frac{1}{1 + e^{-z}}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; is the output of the previous layer. In addition to forward propogation this neural net includes back-propagation. Back-propagation allows the neural net to update the weights based on error from the output, thereby helping the algorithm find the optimal set of weights that minimizes the error.&lt;/p&gt;
+
+&lt;p&gt;Lastly the output of the algorithm is handled by the a softmax function. The softmax function takes the output of the neural net and assigns a probability to each output class. The class with the largest probability is assigned its respective label.&lt;/p&gt;
+
+&lt;p&gt;For a three class data set the explicit softmax expression is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma  = \frac{ e^{z_{j}} }{ e^{z_{1}} +  e^{z_{2}} +  e^{z_{3}} }&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; is the one of the output classes (&lt;script type=&quot;math/tex&quot;&gt;j =1, 2, 3&lt;/script&gt; ).&lt;/p&gt;
+
+&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;/h1&gt;
+
+&lt;p&gt;Here is the &lt;a href=&quot;https://github.com/kuantumlad/machine_learning/blob/master/classification/iris_nn.ipynb&quot;&gt; link &lt;/a&gt; to a three layer neural net I made from scratch in a jupyter notebook to classify the canonical iris data set.&lt;/p&gt;</content><author><name></name></author><category term="Iris Data Set" /><category term="Neural Net" /><category term="One Layer Net" /><category term="Two Layer Net" /><category term="Classification" /><category term="Python" /><category term="Multivariate Data" /><summary type="html">Overview</summary></entry><entry><title type="html">Simple Interactive Speeder Bike Game</title><link href="http://localhost:4000/2017/05/15/speeder_bike_project.html" rel="alternate" type="text/html" title="Simple Interactive Speeder Bike Game" /><published>2017-05-15T05:55:00-04:00</published><updated>2017-05-15T05:55:00-04:00</updated><id>http://localhost:4000/2017/05/15/speeder_bike_project</id><content type="html" xml:base="http://localhost:4000/2017/05/15/speeder_bike_project.html">&lt;p&gt;This was my first multiclass coding project using SFML libraries to learn more about coding fundamentals using C++. My childhood and current interest in Star Wars (the original trilogoy) was the inspiration for making this a game where the player is on a speeder bike travelling through the dense forrest of Endor trying to avoid getting shot at by enemy troopers.&lt;/p&gt;
+
+&lt;h1 id=&quot;development&quot;&gt;Development&lt;/h1&gt;
+&lt;p&gt;The game is comprised of a handful of classes to manage the background, the sprites ( the character ), and player input.&lt;/p&gt;
+
+&lt;h1 id=&quot;game-cut-scene&quot;&gt;Game Cut Scene&lt;/h1&gt;
+
+&lt;p&gt;The game cut scene was made entirely from scratch using GIMP, an open source image editor, and stitching it together in a timely and orderly fashion for presentation. A couple elements of this were fun to create.&lt;/p&gt;
+
+&lt;h4 id=&quot;warp-speed&quot;&gt;Warp Speed&lt;/h4&gt;
+&lt;p&gt;The warp speed scene is done by first randomly generating the position of a &lt;code&gt; sf::VertexArray &lt;/code&gt; object around the center of the screen. Next as warp speed or light speed was engaged the objects where then lengthed radially away from the center of the window to create the vanishing point.&lt;/p&gt;
+
+&lt;h1 id=&quot;dynamics&quot;&gt;Dynamics&lt;/h1&gt;
+
+&lt;p&gt;The player controlls their character via keyboard input. This includes moving left or right and jumping the the vertical direction. As the aim of the mission is to hit the enemy using a laser blaster equired to the character, the player can also shoot using the Space bar on the keyboard. However the player only has so much life and health to spare before the mission is critically endangered.&lt;/p&gt;
+
+&lt;h4 id=&quot;jumping&quot;&gt;Jumping&lt;/h4&gt;
+&lt;p&gt;The character’s movement in the vertical direction is governed by basic kinematic equations of motion of an object under the influence of gravity.&lt;/p&gt;</content><author><name></name></author><category term="Speeder Bike" /><category term="C++" /><category term="Game" /><category term="Star Wars" /><category term="Fun" /><summary type="html">This was my first multiclass coding project using SFML libraries to learn more about coding fundamentals using C++. My childhood and current interest in Star Wars (the original trilogoy) was the inspiration for making this a game where the player is on a speeder bike travelling through the dense forrest of Endor trying to avoid getting shot at by enemy troopers.</summary></entry></feed>
